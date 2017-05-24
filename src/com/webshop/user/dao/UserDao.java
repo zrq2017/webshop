@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import com.webshop.merchant.vo.Merchant;
 import com.webshop.user.vo.User;
 
 public class UserDao extends HibernateDaoSupport{
@@ -31,6 +32,42 @@ public class UserDao extends HibernateDaoSupport{
 			return false;
 		}
 		return true;
+	}
+
+	//根据用户ID查询用户
+	public User findByUid(Integer uid) {
+		String hql="from User where uid=?";
+		List<User> list=this.getHibernateTemplate().find(hql, uid);
+		if(list!=null&&list.size()>0){
+			return list.get(0);
+		}
+		return null;
+	}
+
+	//删除用户
+	public void delete(User u) {
+		this.getHibernateTemplate().delete(u);
+	}
+
+
+	//查找所有商家
+	public List<User> findMerchant(Integer tid) {
+		String hql="from User where type=?";
+		List<User> list=this.getHibernateTemplate().find(hql, tid);
+		if(list!=null&&list.size()>0){
+			return list;
+		}
+		return null;
+	}
+
+	//返回查找用户详细信息
+	public User findUser(User user) {
+		String hql="from User where username=? and password=?";
+		List<User> list=this.getHibernateTemplate().find(hql, user.getUsername(),user.getPassword());
+		if(list!=null&&list.size()>0){
+			return list.get(0);
+		}
+		return null;
 	}
 
 }

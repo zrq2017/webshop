@@ -6,15 +6,22 @@
 		<action name="index_*" class="indexAction" method="{1}">
 			<result name="index">/WEB-INF/jsp/index.jsp</result>
 			<result name="login">/WEB-INF/jsp/loginAndSign.jsp</result>
+			<result name="merchantRegist">/WEB-INF/jsp/merchant/regist.jsp</result>
 		</action>
 		<action name="user_*" class="userAction" method="{1}">
 			<result name="admin">/WEB-INF/jsp/admin/index.jsp</result>
 			<result name="customer">/WEB-INF/jsp/index.jsp</result>
 			<result name="merchant">/WEB-INF/jsp/merchant/index.jsp</result>
-			<result name="input">/WEB-INF/jsp/loginAndSign.jsp</result>
+			<result name="input">/WEB-INF/jsp/merchant/regist.jsp</result>
 		</action>
 		<action name="product_*" class="productAction" method="{1}">
 			<result name="list">/WEB-INF/jsp/index.jsp</result>
+			<result name="detail">/WEB-INF/jsp/goodsDetail.jsp</result>
+			<result name="cart">/WEB-INF/jsp/customer/cart.jsp</result>
+			<result name="showCart">/WEB-INF/jsp/customer/cart.jsp</result>
+		</action>
+		<action name="admin_*" class="adminAction" method="{1}">
+			<result name="admin">/WEB-INF/jsp/admin/index.jsp</result>
 		</action>
 	</package>
 </struts>    

@@ -57,6 +57,7 @@
 <!-- =========Action的配置=============== -->
 <!-- 首页访问的Action -->
 <bean id="indexAction" class="com.webshop.index.action.IndexAction" scope="prototype">
+	<property name="productService" ref="productService"/>
 </bean>
 <!-- 用户Action -->
 <bean id="userAction" class="com.webshop.user.action.UserAction" scope="prototype">
@@ -66,6 +67,12 @@
 <bean id="productAction" class="com.webshop.product.action.ProductAction" scope="prototype">
 	<property name="productService" ref="productService"/>
 </bean>
+<!-- 管理员Action -->
+<bean id="adminAction" class="com.webshop.admin.action.AdminAction" scope="prototype">
+	<property name="adminService" ref="adminService"/>
+	<property name="userService" ref="userService"/>
+</bean>
+
 
 <!-- =======service配置================= -->
 <!-- 用户service -->
@@ -76,16 +83,23 @@
 <bean id="productService" class="com.webshop.product.service.ProductService">
 	<property name="productDao" ref="productDao"/>
 </bean>
+<!-- 管理员service -->
+<bean id="adminService" class="com.webshop.admin.service.AdminService">
+	<property name="adminDao" ref="adminDao"/>
+</bean>
 
 <!-- ===========dao配置=========== -->
 <!-- 用户dao -->
 <bean id="userDao" class="com.webshop.user.dao.UserDao">
 	<property name="sessionFactory" ref="sessionFactory"/>
 </bean>
-<!-- 产品daoe -->
+<!-- 产品dao -->
 <bean id="productDao" class="com.webshop.product.dao.ProductDao">
 	<property name="sessionFactory" ref="sessionFactory"/>
 </bean>
-
+<!-- 管理员Dao -->
+<bean id="adminDao" class="com.webshop.admin.dao.AdminDao">
+	<property name="sessionFactory" ref="sessionFactory"/>
+</bean>
 
 </beans>

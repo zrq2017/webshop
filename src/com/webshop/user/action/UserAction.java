@@ -1,8 +1,11 @@
 package com.webshop.user.action;
 
+import java.util.List;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.webshop.merchant.vo.Merchant;
 import com.webshop.user.service.UserService;
 import com.webshop.user.vo.User;
 
@@ -26,8 +29,18 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	
 	//登录方法
 	public String login(){
+		User currUser=userService.findUser(user);
+		ActionContext.getContext().getSession().put("currUser",currUser);
 		int type=userService.findType(user);
 		if(type==0){//管理员
+			//查找所有注册商家
+			List<User> mlist=userService.findMerchant(1);
+			//保存到值栈
+			ActionContext.getContext().getSession().put("mlist",mlist);
+			//查找所有待通过审核商家
+			List<User> nmlist=userService.findMerchant(4);
+			//保存到值栈
+			ActionContext.getContext().getSession().put("nmlist",nmlist);
 			return "admin";
 		}else if(type==1){//商家
 			return "merchant";
@@ -64,6 +77,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 			this.addActionError("用户名已存在！");
 			return "input";
 		}
+		//正常不跳到商家首页而是消息提示页面等待管理员审核，待改
 		return "merchant";
 	}
 }

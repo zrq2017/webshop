@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
 	<div class="header">
 		<!-- 返回到首页 -->
-		<div class="headerA"><a href="${pageContext.request.contextPath}/index.action"">首页</a></div>
+		<div class="headerA"><a href="${pageContext.request.contextPath}/index.action">首页</a></div>
 	</div>
 	<div class="content">
 		<div class="content-left">

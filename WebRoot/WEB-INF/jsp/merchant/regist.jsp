@@ -1,4 +1,5 @@
-<%@ page language="java" import="java.util.*"  contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>我的店铺</title>
+	<title>商家注册页面</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -29,36 +30,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
 	<div class="content">
-		<div class="add-goods">
-			<a href="">添加商品</a>
-		</div>
-		<div class="title">
-			<div class="title-info">
-				<span>商品信息</span>
+		<form action="${pageContext.request.contextPath}/user_merchantRegist.action" method="post">
+			<div class="login">
+				<span class="accountWarning"><s:actionerror/></span>
+				<input type="text" name="username" placeholder="请输入账号">
+				<input type="password" name="password" placeholder="请输入密码">
+				<span class="passwordWarning">与第一次输入的密码不符</span>
+				<input type="password" name="repassword" placeholder="请再次输入密码">
 			</div>
-			<div class="title-operate">
-				<span>操作</span>
+			<div class="login-button">
+				<input type="submit" name="" value="注册">
 			</div>
-		</div>
-		<div class="goods-list">
-			<div class="goods-imgae">
-				<img src="">
-			</div>
-			<div class="goods-name">
-				<span>商品名称</span>
-			</div>
-			<div class="goods-price">
-				<span>￥100</span>
-			</div>
-			<div class="goods-introduction">
-				<span>商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述</span>
-			</div>
-			<div class="goods-operate">
-				<a href="">编辑</a>
-				<a href="">删除</a>
-			</div>
-		</div>
+		</form>
 	</div>
-
 </body>
 </html>
