@@ -4,6 +4,7 @@ public class Product {
 	private int pid;//商品ID
 	private String pname;//商品名称
 	private double price;//商品价格
+	private String image;//商品图片
 	/**
 	 * @return the pid
 	 */
@@ -40,4 +41,17 @@ public class Product {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	/**
+	 * @return the image
+	 */
+	public String getImage() {
+		return image;
+	}
+	/**
+	 * @param image the image to set
+	 */
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
 }

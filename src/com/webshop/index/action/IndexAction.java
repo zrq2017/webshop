@@ -8,5 +8,13 @@ import com.opensymphony.xwork2.ActionSupport;
  *
  */
 public class IndexAction extends ActionSupport{
-
+	
+	public String login(){
+		return "login";
+	}
+	
+	//默认跳转到首页
+	public String execute(){
+		return "index";
+	}
 }

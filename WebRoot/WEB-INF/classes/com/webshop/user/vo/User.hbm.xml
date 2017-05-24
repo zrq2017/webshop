@@ -3,12 +3,12 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="com.webshop.product.vo.Product" table="product">
-		<id name="pid">
+	<class name="com.webshop.user.vo.User" table="user">
+		<id name="uid">
 			<generator class="native"></generator>
 		</id>
-		<property name="pname"></property>
-		<property name="price"></property>
-		<property name="image"></property>
+		<property name="username"></property>
+		<property name="password"></property>
+		<property name="type"></property>
 	</class>
 </hibernate-mapping>

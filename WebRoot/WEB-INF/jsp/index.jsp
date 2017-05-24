@@ -19,10 +19,88 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/index.css">
 
   </head>
-  
-  <body>
-    This is my JSP page. <br>
-  </body>
+
+<body>
+	<div class="header">
+		<div class="noLogged">
+			<div class="noLogged-a"><a href="${pageContext.request.contextPath}/index_login.action">登录</a></div>
+		</div>
+		<div class="logged">
+			<div class="user"><span>用户名</span></div>
+			<div class="shoppingCarA"><a href="">购物车</a></div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="goodsList">
+			<div class="goods">
+				<div class="goodsImage">
+					<img src="">
+				</div>
+				<div class="goodsInfo">
+					<div class="goodsName"><a href="">商品名</a></div>
+					<div class="goodsPrice"><span>100元</span></div>
+				</div>
+				<div class="goodsOperate">
+					<button class="addToCar">加入购物车</button>
+					<button class="buy">购买</button>
+				</div>
+			</div>
+			<div class="goods">
+				<div class="goodsImage">
+					<img src="">
+				</div>
+				<div class="goodsInfo">
+					<div class="goodsName"><a href="">商品名</a></div>
+					<div class="goodsPrice"><span>100元</span></div>
+				</div>
+				<div class="goodsOperate">
+					<button class="addToCar">加入购物车</button>
+					<button class="buy">购买</button>
+				</div>
+			</div>
+			<div class="goods">
+				<div class="goodsImage">
+					<img src="">
+				</div>
+				<div class="goodsInfo">
+					<div class="goodsName"><a href="">商品名</a></div>
+					<div class="goodsPrice"><span>100元</span></div>
+				</div>
+				<div class="goodsOperate">
+					<button class="addToCar">加入购物车</button>
+					<button class="buy">购买</button>
+				</div>
+			</div>
+			<div class="goods">
+				<div class="goodsImage">
+					<img src="">
+				</div>
+				<div class="goodsInfo">
+					<div class="goodsName"><a href="">商品名</a></div>
+					<div class="goodsPrice"><span>100元</span></div>
+				</div>
+				<div class="goodsOperate">
+					<button class="addToCar">加入购物车</button>
+					<button class="buy">购买</button>
+				</div>
+			</div>
+			<div class="goods">
+				<div class="goodsImage">
+					<img src="">
+				</div>
+				<div class="goodsInfo">
+					<div class="goodsName"><a href="">商品名</a></div>
+					<div class="goodsPrice"><span>100元</span></div>
+				</div>
+				<div class="goodsOperate">
+					<button class="addToCar">加入购物车</button>
+					<button class="buy">购买</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

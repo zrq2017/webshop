@@ -8,5 +8,7 @@
 			<generator class="native"></generator>
 		</id>
 		<property name="pname"></property>
-		<property name="price"></property></class>
+		<property name="price"></property>
+		<property name="image"></property>
+	</class>
 </hibernate-mapping>

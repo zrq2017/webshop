@@ -41,9 +41,7 @@
 	<property name="mappingResources">
 		<list>
 			<value>com/webshop/product/vo/Product.hbm.xml</value>
-			<value>com/webshop/customer/vo/Customer.hbm.xml</value>
-			<value>com/webshop/merchant/vo/Merchant.hbm.xml</value>
-			<value>com/webshop/admin/vo/AdminUser.hbm.xml</value>
+			<value>com/webshop/user/vo/User.hbm.xml</value>
 		</list>
 	</property>
 	
@@ -57,93 +55,37 @@
 
 
 <!-- =========Action的配置=============== -->
-
 <!-- 首页访问的Action -->
-<bean id="indexAction" class="com.webshop.index.action.IndexAction" scope="prototype"><!-- 
-	<property name="categoryService" ref="categoryService"/>
-	<property name="productService" ref="productService"/> -->
+<bean id="indexAction" class="com.webshop.index.action.IndexAction" scope="prototype">
 </bean>
-
-<!-- 顾客模块的Action -->
-<bean id="customerAction" class="com.webshop.customer.action.CustomerAction" scope="prototype">
-	<property name="customerService" ref="customerService"/>
+<!-- 用户Action -->
+<bean id="userAction" class="com.webshop.user.action.UserAction" scope="prototype">
+	<property name="userService" ref="userService"/>
 </bean>
-
-<!-- 商品模块的Action -->
+<!-- 产品Action -->
 <bean id="productAction" class="com.webshop.product.action.ProductAction" scope="prototype">
 	<property name="productService" ref="productService"/>
 </bean>
 
-<!-- 购物车Action -->
-<bean id="cartAction" class="com.webshop.cart.action.CartAction" scope="prototype">
-	<property name="productService" ref="productService"/>
-</bean>
-
-<!-- 订单Action -->
-<bean id="orderAction" class="com.webshop.order.action.OrderAction" scope="prototype">
-	<property name="orderService" ref="orderService"/>
-</bean>
-
-<!-- 后台管理Action -->
-<bean id="adminUserAction" class="com.webshop.adminuser.action.AdminUserAction" scope="prototype">
-	<property name="adminUserService" ref="adminUserService"/>
-</bean>
-<bean id="userAdminAction" class="com.webshop.user.adminator.UserAdminAction" scope="prototype">
-	<property name="userService" ref="userService"/>
-</bean>
-<bean id="adminCategoryAction" class="com.webshop.category.adminaction.AdminCategoryAction" scope="prototype">
-	<property name="categoryService" ref="categoryService"/>
-</bean>
-<bean id="adminCategorySecondAction" class="com.webshop.categorysecond.adminaction.AdminCategorySecondAction" scope="prototype">
-	<property name="categoryService" ref="categoryService"/>
-	<property name="categorySecondService" ref="categorySecondService"/>
-</bean>
-<bean id="adminProductAction" class="com.webshop.product.adminaction.AdminProductAction" scope="prototype">
-	<property name="productService" ref="productService"/>
-	<property name="categorySecondService" ref="categorySecondService"/>
-</bean>
-<bean id="adminOrderAction" class="com.webshop.order.adminaction.AdminOrderAction">
-	<property name="orderService" ref="orderService"/>
-</bean>
-
-<!-- =========Service的配置============== -->
-<bean id="userService" class="com.webshop.user.service.UserService" >
+<!-- =======service配置================= -->
+<!-- 用户service -->
+<bean id="userService" class="com.webshop.user.service.UserService">
 	<property name="userDao" ref="userDao"/>
 </bean>
-<bean id="categoryService" class="com.webshop.category.service.CategoryService">
-	<property name="categoryDao" ref="categoryDao"/>
-</bean>
-<bean id="categorySecondService" class="com.webshop.categorysecond.service.CategorySecondService">
-	<property name="categorySecondDao" ref="categorySecondDao"/>
-</bean>
+<!-- 产品service -->
 <bean id="productService" class="com.webshop.product.service.ProductService">
 	<property name="productDao" ref="productDao"/>
 </bean>
-<bean id="orderService" class="com.webshop.order.service.OrderService">
-	<property name="orderDao" ref="orderDao"/>
-</bean>
-<!-- 后台管理员Service -->
-<bean id="adminUserService" class="com.webshop.adminuser.service.AdminUserService">
-	<property name="adminUserDao" ref="adminUserDao"/>
-</bean>
 
-<!-- ==========Dao的配置================= -->
+<!-- ===========dao配置=========== -->
+<!-- 用户dao -->
 <bean id="userDao" class="com.webshop.user.dao.UserDao">
 	<property name="sessionFactory" ref="sessionFactory"/>
 </bean>
-<bean id="categoryDao" class="com.webshop.category.dao.CategoryDao">
-	<property name="sessionFactory" ref="sessionFactory"/>
-</bean>
-<bean id="categorySecondDao" class="com.webshop.categorysecond.dao.CategorySecondDao">
-	<property name="sessionFactory" ref="sessionFactory"/>
-</bean>
+<!-- 产品daoe -->
 <bean id="productDao" class="com.webshop.product.dao.ProductDao">
 	<property name="sessionFactory" ref="sessionFactory"/>
 </bean>
-<bean id="orderDao" class="com.webshop.order.dao.OrderDao">
-	<property name="sessionFactory" ref="sessionFactory"/>
-</bean>
-<bean id="adminUserDao" class="com.webshop.adminuser.dao.AdminUserDao">
-	<property name="sessionFactory" ref="sessionFactory"/>
-</bean>
+
+
 </beans>
