@@ -9,4 +9,23 @@
 .content{
 	width: 960px;
 	margin:32px auto;
+	display: flex;
+}
+.content-left{
+	width: 640px;
+}
+.content-right{
+	width: 320px;
+}
+.login-gb{
+	display: block;
+}
+.login-gn{
+	display: none;
+}
+.sign-gb{
+	display: block;
+}
+.sign-gn{
+	display: none;
 }

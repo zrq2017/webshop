@@ -11,30 +11,38 @@
 		<div class="headerA"><a href="./index.html">首页</a></div>
 	</div>
 	<div class="content">
-		<div class="content-left"></div>
+		<div class="content-left">
+			<img class="left-img" src="">
+		</div>
 		<div class="content-right">
 			<div class="right-con">
 				<div class="con-select">
-					<a class="select-login" href="">登录</a>
-					<a class="select-sign" href="">注册</a>
+					<a class="select-login">登录</a>
+					<a class="select-sign">注册</a>
 				</div>
-				<div class="login">
+				<div id="login" class="login-gb">
 					<form action="" method="">
-						<input type="text" name="" placeholder="账号">
-						<input type="password" name="" placeholder="密码">
+						<span>账号或密码错误</span>
+						<input type="text" name="account" placeholder="账号">
+						<input type="password" name="password" placeholder="密码">
+						<input type="button" name="" value="登录">
 					</form>
-					<input type="button" name="" value="登录">
 				</div>
-				<div class="sign">
+				<div id="sign" class="sign-gn">
 					<form action="" method="">
-						<input type="text" name="" placeholder="请输入账号">
-						<input type="password" name="" placeholder="请输入密码">
-						<input type="password" name="" placeholder="请重复输入该密码">
+						<span>该账号名已被注册</span>
+						<input type="text" name="newAccount" placeholder="请输入账号">
+						<span>该昵称已被注册</span>
+						<input type="text" name="" placeholder="请输入昵称">
+						<input type="password" name="newPassword" placeholder="请输入密码">
+						<span>与第一次输入的密码不同</span>
+						<input type="password" name="againPassword" placeholder="请重复输入该密码">
+						<input type="button" name="" value="注册">
 					</form>
-					<input type="button" name="" value="注册">
 				</div>
 			</div>
 		</div>
 	</div>
 </body>
+<script type="text/javascript" src="../js/loginAndSign.js"></script>
 </html>
