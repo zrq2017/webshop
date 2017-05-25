@@ -47,7 +47,7 @@ function buyNow(){
 	<div class="row">
 		<div class="content col-md-6 col-md-offset-1">
 			<div class="goods-image col-md-6">
-				<img src="${pageContext.request.contextPath}/images/<s:property value="#currProduct.image"/ id="goodsImg"> ">
+				<img src="${pageContext.request.contextPath}/images/<s:property value="currProduct.image"/>" id="goodsImg"/>
 			</div>
 			<div class="goods-detail col-md-6">
 				<div class="goods-name">
@@ -59,9 +59,9 @@ function buyNow(){
 				<form  id="cartForm" action="" method="post">
 				<input type="hidden" name="pid" value="<s:property value="currProduct.pid"/>"/>
 					<div class="goods-count">
-						<button class="sub btn btn-default"><</button>
+						<input class="sub btn btn-default" value="<"/>
 						<input type="text" name="number" value="1">
-						<button class="add btn btn-default">></button>
+						<input class="add btn btn-default" value=">"/>
 					</div>
 					<div class="goods-operate">
 						<input type="submit" name="buy" value="立即购买" onclick="buyNow()" class="col-md-4 btn btn-danger">

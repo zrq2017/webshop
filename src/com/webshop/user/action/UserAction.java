@@ -64,9 +64,9 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		}else if(type==2){//顾客
 			return "customer";
 		}else{//未找到
-			this.addActionError("用户名或密码错误！");
+			this.addActionMessage("用户名或密码错误！");
+			return "message";
 		}
-		return "customer";
 	}
 	
 	//会员注册功能

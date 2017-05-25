@@ -33,7 +33,7 @@ public class IndexAction extends ActionSupport{
 	
 	//注销当前用户
 	public String logout(){
-		ActionContext.getContext().getSession().put("currUser",null);
+		ActionContext.getContext().getSession().remove("currUser");
 		return "index";
 	}
 	

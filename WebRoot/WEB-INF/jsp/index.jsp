@@ -39,9 +39,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</s:if>
 		<s:else>
 		<div class="logged col-md-offset-10">
-			<a href="" class="navbar-brand">首页</a>
+			<a href="${pageContext.request.contextPath}/index.action" class="navbar-brand">首页</a>
 			<span class="navbar-brand"><s:property value="#session.currUser.username"/></span>
-			<a href=""  class="navbar-brand">[注销]</a>
+			<a href="${pageContext.request.contextPath}/index_logout.action"  class="navbar-brand">[注销]</a>
 			<a href="${pageContext.request.contextPath}/product_showCart.action"  class="navbar-brand">购物车</a>
 		</div>
 		</s:else>
