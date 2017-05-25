@@ -1,0 +1,50 @@
+.title{
+	display: flex;
+	height: 25px;
+	border: solid 1px #e3e3e3;
+}
+.title_span{
+	display: block;
+	width: 100%;
+	text-align: center;
+	line-height: 25px;
+}
+.title_table{
+	border: solid 1px #e3e3e3;
+}
+.title-info>span{
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+.goods_table{
+	border:solid 1px #e3e3e3;
+	height: 84px;
+}
+.goods_span{
+	display: block;
+	line-height: 84px;
+	text-align: center;
+}
+.goods-image>img{
+	width: 100%;
+}
+.goods-count{
+	display: flex;
+	padding: 0 auto;
+}
+.goods-count>button{
+	display: block;
+	height: 30px;
+	width: 30px;
+	margin-top: 26px;
+	line-height: 15px;
+}
+.goods-count>input{
+	height: 30px;
+	width: 30px;
+	margin-top: 26px;
+}
+.goods-operate{
+	padding-top: 25px;
+}

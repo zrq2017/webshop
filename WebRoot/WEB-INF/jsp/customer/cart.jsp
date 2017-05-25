@@ -20,57 +20,61 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/shoppingTrolley.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
   </head>
   
  <body>
-	<div class="header">
-		<div class="headerA"><a href="${pageContext.request.contextPath}/index.action">首页</a></div>
+	<div class="header navbar navbar-default">
+		<div class="headerA"><a href="${pageContext.request.contextPath}/index.action" class="navbar-brand">首页</a></div>
+		<a href="" class="navbar-brand">用户名</a>
 	</div>
 
-	<div class="content">
+	<div class="content col-md-6 col-md-offset-2">
 		<s:if test="#session.car != null">
 		<div class="shoppingList">
 			<div class="title">
-				<div class="title-info">
+				<div class="title-info title_table col-md-4">
 					<span>商品信息</span>
 				</div>
-				<div class="title-price">
+				<div class="title-price title_table col-md-2">
 					<span>单价</span>
 				</div>
-				<div class="title-count">
+				<div class="title-count title_table col-md-2">
 					<span>数量</span>
 				</div>
-				<div class="title-total">
+				<div class="title-total title_table col-md-2">
 					<span>总价</span>
 				</div>
-				<div class="title-operate">
+				<div class="title-operate title_table col-md-2">
 					<span>操作</span>
 				</div>
 			</div>
 			<s:iterator var="c" value="#session.car"></s:iterator>
 			<form action="" method="">
 				<div class="goods">
-					<div class="goods-image">
+					<div class="goods-image goods_table col-md-2">
 						<img src="${pageContext.request.contextPath}/images/<s:property value="#c.product.image"/>">
 					</div>
-					<div class="goods-name">
+					<div class="goods-name goods_table col-md-2">
 						<span><s:property value="#c.product.pname"/></span>
 					</div>
-					<div class="goods-price">
+					<div class="goods-price goods_table col-md-2">
 						<span><s:property value="#c.product.price"/>元</span>
 					</div>
-					<div class="goods-count">
-						<button class="sub">-</button>
-						<span><s:property value="#c.number"/></span>
-						<button class="add">+</button>
+					<div class="goods-count goods_table col-md-2">
+						<button class="sub btn btn-default">-</button>
+						<span></span>
+						<input id="count" type="text" name="number" value="<s:property value="#c.number"/>">
+						<button class="add btn btn-default">+</button>
 					</div>
-					<div class="goods-totalprice">
+					<div class="goods-totalprice goods_table col-md-2">
 						<span><s:property value="#c.totalPrice"/>元</span>
 					</div>
-					<div class="goods-operate">
-						<submit href="">购买</submit>
-						<submit href="">删除</submit>
+					<div class="goods-operate goods_table col-md-2">
+						<input type="submit" name="" class="btn btn-danger" value="购买">
+						<a href="">删除</a>
 					</div>
 				</div>
 			</form>
