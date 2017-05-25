@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.webshop.product.vo.CartItem;
+import com.webshop.product.vo.Comment;
 import com.webshop.product.vo.Product;
 /**
  * 商品持久层类
@@ -51,6 +52,19 @@ public class ProductDao extends HibernateDaoSupport {
 			return list;
 		}
 		return null;
+	}
+	//根据商品ID查询评论
+	public List<Comment> findCommentByPid(int pid) {
+		String hql="from Comment where pid=?";
+		List<Comment> list=this.getHibernateTemplate().find(hql, pid);
+		if(list.size()>0&&list!=null){
+			return list;
+		}
+		return null;
+	}
+	//发表评论
+	public void addComment(Comment c) {
+		this.getHibernateTemplate().save(c);
 	}
 
 }

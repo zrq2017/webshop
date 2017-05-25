@@ -16,6 +16,7 @@
 			<result name="customer">/WEB-INF/jsp/index.jsp</result>
 			<result name="merchant">/WEB-INF/jsp/merchant/index.jsp</result>
 			<result name="input">/WEB-INF/jsp/merchant/regist.jsp</result>
+			<result name="detail">/WEB-INF/jsp/goodsDetail.jsp</result>
 		</action>
 		<action name="product_*" class="productAction" method="{1}">
 			<result name="list">/WEB-INF/jsp/index.jsp</result>

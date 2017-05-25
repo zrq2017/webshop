@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.webshop.product.dao.ProductDao;
 import com.webshop.product.vo.CartItem;
+import com.webshop.product.vo.Comment;
 import com.webshop.product.vo.Product;
 
 /**
@@ -49,5 +50,13 @@ public class ProductService {
 	//根据商家ID返回该商家所有商品
 	public List<Product> findByUid(Integer uid) {
 		return productDao.findByUid(uid);
+	}
+	//根据商品ID查询评论
+	public List<Comment> findCommentByPid(int pid) {
+		return productDao.findCommentByPid(pid);
+	}
+	//发表评论
+	public void addComment(Comment c) {
+		productDao.addComment(c);
 	}
 }

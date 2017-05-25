@@ -38,23 +38,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		</s:if>
 		<s:else>
+		<s:if test="#session.currUser.type == 2">
 		<div class="logged col-md-offset-10">
 			<a href="${pageContext.request.contextPath}/index.action" class="navbar-brand">首页</a>
 			<span class="navbar-brand"><s:property value="#session.currUser.username"/></span>
 			<a href="${pageContext.request.contextPath}/index_logout.action"  class="navbar-brand">[注销]</a>
 			<a href="${pageContext.request.contextPath}/product_showCart.action"  class="navbar-brand">购物车</a>
 		</div>
-		</s:else>
+		</s:if>
+		<s:if test="#session.currUser.type == 1">
 		<!-- 商家登录 -->
 		<div class="logged col-md-offset-10">
 			<a class="navbar-brand" href="">首页</a>
 			<a class="navbar-brand">商家名</a>
 		</div>
+		</s:if>
+		<s:if test="#session.currUser.type == 0">
 		<!-- 管理员登录 -->
 		<div class="logged col-md-offset-10">
 			<a class="navbar-brand" href="">首页</a>
 			<a class="navbar-brand">管理员名</a>
 		</div>
+		</s:if>
+		</s:else>
 	</div>
 	<div class="content col-md-10 col-md-offset-1">
 		<div class="goodsList col-md-12 row">
