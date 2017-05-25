@@ -5,7 +5,9 @@
 .header{
 	height: 50px;
 }
-
+.error{
+	color: red;
+}
 .content{
 	width: 960px;
 	margin:32px auto;
@@ -16,6 +18,9 @@
 }
 .content-right{
 	width: 320px;
+}
+.content-right>p{
+	color: red;
 }
 .login-gb{
 	display: block;
@@ -28,4 +33,7 @@
 }
 .sign-gn{
 	display: none;
+}
+#login{
+	padding-top:10px;
 }
