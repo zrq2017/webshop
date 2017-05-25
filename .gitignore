@@ -1,3 +1,13 @@
 # jdbc.properties
 
 *.properties
+
+# Java class files
+*.class
+
+
+*.classpath
+.classpath
+
+# Log Files
+*.log
