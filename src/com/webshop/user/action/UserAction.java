@@ -51,6 +51,10 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 			List<User> nmlist=userService.findMerchant(4);
 			//保存到值栈
 			ActionContext.getContext().getSession().put("nmlist",nmlist);
+			//查找所有会员
+			List<User> clist=userService.findMerchant(2);
+			//保存到值栈
+			ActionContext.getContext().getSession().put("clist",clist);
 			return "admin";
 		}else if(type==1){//商家
 			List<Product> plist=productService.findByUid(currUser.getUid());
@@ -69,14 +73,15 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	public String regist(){
 		if(userService.findByName(user.getUsername())){
 			//根据用户名未查询到用户则注册
-			//类型为3代表会员注册
-			user.setType(3);
+			//类型为2代表会员注册,默认成功
+			user.setType(2);
 			userService.regist(user);
 		}else{
 			this.addActionError("用户名已存在！");
 			return "input";
 		}
-		return "customer";
+		this.addActionMessage("注册成功！");
+		return "message";
 	}
 	
 	//商家注册
@@ -90,8 +95,8 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 			this.addActionError("用户名已存在！");
 			return "input";
 		}
-		//正常不跳到商家首页而是消息提示页面等待管理员审核，待改
-		return "merchant";
+		this.addActionMessage("注册成功！");
+		return "message";
 	}
 	
 	//跳回商家首页

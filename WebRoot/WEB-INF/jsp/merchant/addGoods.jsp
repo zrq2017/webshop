@@ -38,6 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<img src="${pageContext.request.contextPath}/images/<s:property value="editProduct.images"/>">
 			<input type="file" name="image">
 			<input type="hidden" name="user_id" value="<s:property value="#session.currUser.uid"/>"/>
+			<input type="hidden" name="pid" value="<s:property value="editProduct.pid"/>"/>
 			<button class="save" type="submit">保存</button>
 		</form>
 	</div>

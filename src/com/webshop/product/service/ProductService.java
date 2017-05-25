@@ -3,6 +3,7 @@ package com.webshop.product.service;
 import java.util.List;
 
 import com.webshop.product.dao.ProductDao;
+import com.webshop.product.vo.CartItem;
 import com.webshop.product.vo.Product;
 
 /**
@@ -35,6 +36,10 @@ public class ProductService {
 	//保存商品
 	public void save(Product product) {
 		productDao.save(product);
+	}
+	//保存已购买的购物项信息
+	public void save(CartItem e) {
+		productDao.save(e);
 	}
 	//更新商品
 	public void update(Product product) {

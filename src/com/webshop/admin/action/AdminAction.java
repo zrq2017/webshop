@@ -57,7 +57,8 @@ public class AdminAction extends ActionSupport {
 		setList();
 		return "admin";
 	}
-	//设置会话中已审核及未审核商家
+	
+	//设置会话中已审核及未审核商家,及会员列表
 	public void setList(){
 		//查找所有注册商家
 		List<User> mlist=userService.findMerchant(1);
@@ -67,5 +68,9 @@ public class AdminAction extends ActionSupport {
 		List<User> nmlist=userService.findMerchant(4);
 		//保存到值栈
 		ActionContext.getContext().getSession().put("nmlist",nmlist);
+		//查找所有会员
+		List<User> clist=userService.findMerchant(2);
+		//保存到值栈
+		ActionContext.getContext().getSession().put("clist",clist);
 	}
 }

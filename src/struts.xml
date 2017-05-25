@@ -3,6 +3,9 @@
 <struts>
 	<constant name="struts.devMode" value="false"/>
 	<package name="webshop" extends="struts-default" namespace="/">
+		<global-results>
+			<result name="message">/WEB-INF/jsp/message.jsp</result>
+		</global-results>
 		<action name="index_*" class="indexAction" method="{1}">
 			<result name="index">/WEB-INF/jsp/index.jsp</result>
 			<result name="login">/WEB-INF/jsp/loginAndSign.jsp</result>

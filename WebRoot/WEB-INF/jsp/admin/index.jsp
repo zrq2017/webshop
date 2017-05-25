@@ -66,24 +66,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 
 		<div class="vipManage">
-			<div class="unvip-list">
-				<div class="unvip">
-					<div class="unvip-name"><span>会员昵称</span></div>
-					<div class="unvip-account"><span>会员账号</span></div>
-					<div class="unvip-button">
-						<a class="unvip-pass" href="">通过审核</a>
-						<a class="unvip-reject" href="">拒绝申请</a>
-					</div>
-				</div>
-				<div class="vip-list">
+			<div class="vip-list">
+				<h1>会员列表</h1>
+				<s:iterator var="c" value="#session.clist">
 					<div class="vip">
-						<div class="vip-name"><span>会员昵称</span></div>
-						<div class="vip-account"><span>会员账号</span></div>
+						<div class="vip-name"><span><s:property value="#c.username"/></span></div>
+						<div class="vip-account"><s:property value="#c.password"/></div>
 						<div class="vip-button">
-							<a class="vip-delete" href="">删除该会员</a>
+							<a class="vip-delete" href="${pageContext.request.contextPath}/admin_refuse.action?uid=<s:property value="#c.uid"/>">删除该会员</a>
 						</div>
 					</div>
-				</div>
+				</s:iterator>
 			</div>
 		</div>
 	</div>

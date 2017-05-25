@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import com.webshop.product.vo.CartItem;
 import com.webshop.product.vo.Product;
 /**
  * 商品持久层类
@@ -32,6 +33,10 @@ public class ProductDao extends HibernateDaoSupport {
 	//保存商品
 	public void save(Product product) {
 		this.getHibernateTemplate().save(product);
+	}
+	//保存已购买的购物项信息
+	public void save(CartItem e) {
+		this.getHibernateTemplate().save(e);
 	}
 	//更新商品
 	public void update(Product product) {

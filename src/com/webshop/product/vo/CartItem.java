@@ -5,6 +5,7 @@ package com.webshop.product.vo;
  *
  */
 public class CartItem {
+	private Integer id;
 	//商品项
 	private Product product;
 	//数量
@@ -13,6 +14,18 @@ public class CartItem {
 	private String description;
 	//小计
 	private double totalPrice;
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	/**
 	 * @return the product
 	 */

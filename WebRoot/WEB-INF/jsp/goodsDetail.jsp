@@ -59,10 +59,26 @@ function buyNow(){
 					<button class="add">></button>
 				</div>
 				<div class="goods-operate">
-					<button type="submit" name="buy" value="立即购买" onclick="buyNow()">
-					<button type="submit" name="addToTrolley" value="加入购物车" onclick="saveCart()">
+					<input type="submit" name="buy" value="立即购买" onclick="buyNow()">
+					<input type="submit" name="addToTrolley" value="加入购物车" onclick="saveCart()">
 				</div>
 			</form>
+		</div>
+	</div>
+	<div class="comment-list">
+		<div class="comment">
+			<div class="comment-username">
+				<span>评论人姓名</span>
+			</div>
+			<div class="comment-detail">
+				<span>评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容</span>
+			</div>
+		</div>
+	</div>
+	<div class="add-comment">
+		<textarea placeholder="请写下你的评价"></textarea>
+		<div class="comment-button">
+			<button>提交评价</button>
 		</div>
 	</div>
 </body>
