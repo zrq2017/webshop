@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</s:if>
 		<s:else>
 		<s:if test="#session.currUser.type == 2">
-		<div class="logged col-md-offset-10">
+		<div class="logged col-md-offset-8">
 			<a href="${pageContext.request.contextPath}/index.action" class="navbar-brand">首页</a>
 			<span class="navbar-brand"><s:property value="#session.currUser.username"/></span>
 			<a href="${pageContext.request.contextPath}/index_logout.action"  class="navbar-brand">[注销]</a>
