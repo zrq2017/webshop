@@ -77,10 +77,16 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		e.setNumber(number);
 		List<CartItem> car=(List<CartItem>)ActionContext.getContext().getSession().get("car");
 		if(car!=null&&car.size()>0){
+			boolean tag=true;
 			for(int i=0;i<car.size();i++){
-//				if(car.get(i).getProduct().getPid()==){
-//					
-//				}
+				if(car.get(i).getProduct().getPid()== product.getPid()){
+					car.get(i).setNumber(car.get(i).getNumber()+number);
+					tag=false;
+					break;
+				}
+			}
+			if(tag){
+				car.add(e);
 			}
 		}else{
 			car=new ArrayList<CartItem>();

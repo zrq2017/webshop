@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.webshop.product.vo.Product" table="product">
+		<id name="pid">
+			<generator class="native"></generator>
+		</id>
+		<property name="pname"></property>
+		<property name="price"></property>
+		<property name="image"></property>
+		<property name="production"></property>
+		<property name="user_id"></property>
+		<property name="created_at"></property>
+		<property name="updated_at"></property>
+	</class>
+</hibernate-mapping>

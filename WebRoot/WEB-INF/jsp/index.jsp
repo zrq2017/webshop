@@ -68,11 +68,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="goodsPrice"><span><s:property value="#p.price"/>元</span></div>
 				</div>
 				<form action="" method="">
-				<input type="hidden" name="pid" value="<s:property value="currProduct.pid"/>
+				<input type="hidden" name="pid" value="<s:property value="currProduct.pid"/>">
 				<div class="goodsOperate">
 					<input type="submit" name="" class="addToCar btn btn-warning" value="加入购物车" onclick="buyNow()">
 					<input type="submit" class="buy btn btn-danger" value="购买" onclick="saveCart()">
 				</div>
+				</form>
 			</div>
 			</s:iterator>
 		</div>
