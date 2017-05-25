@@ -62,6 +62,7 @@
 <!-- 用户Action -->
 <bean id="userAction" class="com.webshop.user.action.UserAction" scope="prototype">
 	<property name="userService" ref="userService"/>
+	<property name="productService" ref="productService"/>
 </bean>
 <!-- 产品Action -->
 <bean id="productAction" class="com.webshop.product.action.ProductAction" scope="prototype">

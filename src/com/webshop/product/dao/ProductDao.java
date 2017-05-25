@@ -37,5 +37,15 @@ public class ProductDao extends HibernateDaoSupport {
 	public void update(Product product) {
 		this.getHibernateTemplate().update(product);
 	}
+	
+	//根据商家ID返回该商家所有商品
+	public List<Product> findByUid(Integer uid) {
+		String hql="from Product where user_id=?";
+		List<Product> list=this.getHibernateTemplate().find(hql, uid);
+		if(list.size()>0&&list!=null){
+			return list;
+		}
+		return null;
+	}
 
 }

@@ -40,4 +40,9 @@ public class ProductService {
 	public void update(Product product) {
 		productDao.update(product);
 	}
+	
+	//根据商家ID返回该商家所有商品
+	public List<Product> findByUid(Integer uid) {
+		return productDao.findByUid(uid);
+	}
 }

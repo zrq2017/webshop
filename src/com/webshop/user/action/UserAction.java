@@ -5,7 +5,8 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-import com.webshop.merchant.vo.Merchant;
+import com.webshop.product.service.ProductService;
+import com.webshop.product.vo.Product;
 import com.webshop.user.service.UserService;
 import com.webshop.user.vo.User;
 
@@ -26,7 +27,16 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		// TODO Auto-generated method stub
 		return user;
 	}
+	private ProductService productService;
 	
+	
+	/**
+	 * @param productService the productService to set
+	 */
+	public void setProductService(ProductService productService) {
+		this.productService = productService;
+	}
+
 	//登录方法
 	public String login(){
 		User currUser=userService.findUser(user);
@@ -43,6 +53,9 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 			ActionContext.getContext().getSession().put("nmlist",nmlist);
 			return "admin";
 		}else if(type==1){//商家
+			List<Product> plist=productService.findByUid(currUser.getUid());
+			//保存到值栈
+			ActionContext.getContext().getSession().put("mplist",plist);
 			return "merchant";
 		}else if(type==2){//顾客
 			return "customer";
@@ -78,6 +91,11 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 			return "input";
 		}
 		//正常不跳到商家首页而是消息提示页面等待管理员审核，待改
+		return "merchant";
+	}
+	
+	//跳回商家首页
+	public String merchant(){
 		return "merchant";
 	}
 }

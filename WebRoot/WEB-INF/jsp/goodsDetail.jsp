@@ -1,4 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*"  contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -45,13 +46,13 @@ function buyNow(){
 		</div>
 		<div class="goods-detail">
 			<div class="goods-name">
-				<span><s:property value="#currProduct.pname"/></span>
+				<span><s:property value="currProduct.pname"/></span>
 			</div>
 			<div class="goods-price">
-				<span>￥<s:property value="#currProduct.price"/></span>
+				<span>￥<s:property value="currProduct.price"/></span>
 			</div>
 			<form  id="cartForm" action="" method="post">
-			<input type="hidden" name="pid" value="<s:property value="#currProduct.pid"/>"/>
+			<input type="hidden" name="pid" value="<s:property value="currProduct.pid"/>"/>
 				<div class="goods-count">
 					<button class="sub"><</button>
 					<input type="text" name="number" value="1">

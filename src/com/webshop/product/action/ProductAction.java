@@ -10,6 +10,7 @@ import com.opensymphony.xwork2.ModelDriven;
 import com.webshop.product.service.ProductService;
 import com.webshop.product.vo.CartItem;
 import com.webshop.product.vo.Product;
+import com.webshop.user.vo.User;
 /**
  * 商品处理Action
  * @author Administrator
@@ -59,8 +60,8 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 	
 	//根据商品id查询
 	public String findByPid(){
-		Product product=productService.findByPid(pid);
-		ActionContext.getContext().getValueStack().set("currProduct",product);
+		Product p=productService.findByPid(product.getPid());
+		ActionContext.getContext().getValueStack().set("currProduct",p);
 		return "detail";
 	}
 	
@@ -89,24 +90,39 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		
 		return "";
 	}
+	//设置商家商品列表
+	public void setList(){
+		User u=(User)ActionContext.getContext().getSession().get("currUser");
+		List<Product> plist=productService.findByUid(u.getUid());
+		//保存到值栈
+		ActionContext.getContext().getSession().put("mplist",plist);
+	}
+	
+	//跳转到商品添加页
+	public String add(){
+		return "add";
+	}
 	
 	// 根据ID删除商品
 	public String delete() {
 		product = productService.findByPid(product.getPid());
 		productService.delete(product);
-		return "delete";
+		setList();
+		return "merchant";
 	}
 
 	// 保存商品
 	public String save() throws IOException {
 		productService.save(product);
-		return "save";
+		setList();
+		return "merchant";
 	}
 
 	// 编辑商品
 	public String edit() {
 		product = productService.findByPid(product.getPid());
-		return "edit";
+		ActionContext.getContext().getValueStack().set("editProduct", product);
+		return "add";
 	}
 
 	// 更新商品

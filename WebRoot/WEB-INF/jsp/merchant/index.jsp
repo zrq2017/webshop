@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*"  contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -30,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<div class="content">
 		<div class="add-goods">
-			<a href="">添加商品</a>
+			<a href="${pageContext.request.contextPath}/product_add.action">添加商品</a>
 		</div>
 		<div class="title">
 			<div class="title-info">
@@ -40,24 +41,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<span>操作</span>
 			</div>
 		</div>
+		<s:iterator var="p" value="#session.mplist">
 		<div class="goods-list">
 			<div class="goods-imgae">
-				<img src="">
+				<img src="${pageContext.request.contextPath}/images/<s:property value="#p.image"/>">
 			</div>
 			<div class="goods-name">
-				<span>商品名称</span>
+				<span><s:property value="#p.pname"/></span>
 			</div>
 			<div class="goods-price">
-				<span>￥100</span>
+				<span>￥<s:property value="#p.price"/></span>
 			</div>
 			<div class="goods-introduction">
-				<span>商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述</span>
+				<span><s:property value="#p.production"/></span>
 			</div>
 			<div class="goods-operate">
-				<a href="">编辑</a>
-				<a href="">删除</a>
+				<a href="${pageContext.request.contextPath}/product_edit.action?pid=<s:property value="#p.pid"/>">编辑</a>
+				<a href="${pageContext.request.contextPath}/product_delete.action?pid=<s:property value="#p.pid"/>">删除</a>
 			</div>
 		</div>
+		</s:iterator>
 	</div>
 
 </body>

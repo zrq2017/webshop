@@ -31,6 +31,12 @@ public class IndexAction extends ActionSupport{
 		return "merchantRegist";
 	}
 	
+	//注销当前用户
+	public String logout(){
+		ActionContext.getContext().getSession().put("currUser",null);
+		return "index";
+	}
+	
 	//默认跳转到首页
 	public String execute(){
 		List<Product> plist=productService.findAll();
