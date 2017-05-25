@@ -50,6 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<input id="login_password" type="password" name="password" placeholder="密码" class="form-control">
 							<p class="error hidden">账号或密码错误</p>
 						</div>
+						<input type="button" name="" value="登录" class="btn btn-success col-md-offset-8">
 					</form>
 				</div>
 				<div id="sign" class="sign-gn">
