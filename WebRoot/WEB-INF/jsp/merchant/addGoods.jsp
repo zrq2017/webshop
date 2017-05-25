@@ -31,12 +31,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<s:if test="editProduct!=null">
 		<div class="content">
-		<form action="${pageContext.request.contextPath}/product_save.action" method="post">
+		<form action="${pageContext.request.contextPath}/product_save.action" method="post"  enctype="multipart/form-data">
 			<input type="text" name="pname" placeholder="请输入商品名称" value="<s:property value="editProduct.pname"/>">
 			<input type="text" name="price" placeholder="请输入商品价格" value="<s:property value="editProduct.price"/>">
 			<input type="text" name="production" placeholder="请输入商品的描述" value="<s:property value="editProduct.production"/>">
-			<img src="${pageContext.request.contextPath}/images/<s:property value="editProduct.images"/>">
-			<input type="file" name="image">
+			<img src="${pageContext.request.contextPath}/images/<s:property value="editProduct.image"/>">
+			<input type="file" name="upload">
 			<input type="hidden" name="user_id" value="<s:property value="#session.currUser.uid"/>"/>
 			<input type="hidden" name="pid" value="<s:property value="editProduct.pid"/>"/>
 			<button class="save" type="submit">保存</button>
@@ -45,11 +45,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</s:if>
 	<s:else>
 		<div class="content">
-		<form action="${pageContext.request.contextPath}/product_save.action" method="post">
+		<form action="${pageContext.request.contextPath}/product_save.action" method="post"  enctype="multipart/form-data">
 			<input type="text" name="pname" placeholder="请输入商品名称">
 			<input type="text" name="price" placeholder="请输入商品价格">
 			<input type="text" name="production" placeholder="请输入商品的描述">
-			<input type="file" name="image">
+			<input type="file" name="upload">
 			<input type="hidden" name="user_id" value="<s:property value="#session.currUser.uid"/>"/>
 			<button class="save" type="submit">保存</button>
 		</form>
