@@ -4,52 +4,58 @@
 <head>
 	<title>购物车</title>
 </head>
+<link rel="stylesheet" type="text/css" href="../css/shoppingTrolley.css">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <body>
-	<div class="header">
-		<div class="headerA"><a href="">首页</a></div>
+	<div class="header navbar navbar-default">
+		<div class="headerA col-md-offset-10">
+			<a href="" class="navbar-brand">首页</a>
+			<a href="" class="navbar-brand">用户名</a>
+		</div>
 	</div>
 
-	<div class="content">
+	<div class="content col-md-6 col-md-offset-2">
 		<div class="shoppingList">
 			<div class="title">
-				<div class="title-info">
-					<span>商品信息</span>
+				<div class="title-info title_table col-md-4">
+					<span class="title_span">商品信息</span>
 				</div>
-				<div class="title-price">
-					<span>单价</span>
+				<div class="title-price title_table col-md-2">
+					<span class="title_span">单价</span>
 				</div>
-				<div class="title-count">
-					<span>数量</span>
+				<div class="title-count title_table col-md-2">
+					<span class="title_span">数量</span>
 				</div>
-				<div class="title-total">
-					<span>总价</span>
+				<div class="title-total title_table col-md-2">
+					<span class="title_span">总价</span>
 				</div>
-				<div class="title-operate">
-					<span>操作</span>
+				<div class="title-operate title_table col-md-2">
+					<span class="title_span">操作</span>
 				</div>
 			</div>
 			<form action="" method="">
 				<div class="goods">
-					<div class="goods-image">
-						<img src="">
+					<div class="goods-image goods_table col-md-2">
+						<img src="../images/123.jpg">
 					</div>
-					<div class="goods-name">
-						<span>商品名称</span>
+					<div class="goods-name goods_table col-md-2">
+						<span class="goods_span">商品名称</span>
 					</div>
-					<div class="goods-price">
-						<span>100元</span>
+					<div class="goods-price goods_table col-md-2">
+						<span class="goods_span">100元</span>
 					</div>
-					<div class="goods-count">
-						<button class="sub">-</button>
-						<span>1</span>
-						<button class="add">+</button>
+					<div class="goods-count goods_table col-md-2">
+						<button class="sub btn btn-default">-</button>
+						<input id="count" type="text" name="number" value="1">
+						<button class="add btn btn-default">+</button>
 					</div>
-					<div class="goods-totalprice">
-						<span>100元</span>
+					<div class="goods-totalprice goods_table col-md-2">
+						<span class="goods_span">100元</span>
 					</div>
-					<div class="goods-operate">
-						<submit href="">购买</submit>
-						<submit href="">删除</submit>
+					<div class="goods-operate goods_table col-md-2">
+						<input type="submit" name="" class="btn btn-danger" value="购买">
+						<a href="">删除</a>
 					</div>
 				</div>
 			</form>
