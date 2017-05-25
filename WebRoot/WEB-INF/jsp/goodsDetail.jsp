@@ -20,6 +20,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/goodsDetail.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
 function saveCart(){
 	document.getElementById("cartForm").action="${pageContext.request.contextPath}/product_addToCar.action";
@@ -35,51 +38,57 @@ function buyNow(){
   </head>
   
   <body>
-	<div class="header">
-		<div class="headerA">
-			<a href="${pageContext.request.contextPath}/index.action">首页</a>
+	<div class="header navbar navbar-default">
+		<div class="headerA col-md-offset-10">
+			<a href="${pageContext.request.contextPath}/index.action" class="navbar-brand">首页</a>
+			<a href="" class="navbar-brand">用户名</a>
 		</div>
 	</div>
-	<div class="content">
-		<div class="goods-image">
-			<img src="${pageContext.request.contextPath}/images/<s:property value="#currProduct.image"/> ">
-		</div>
-		<div class="goods-detail">
-			<div class="goods-name">
-				<span><s:property value="currProduct.pname"/></span>
+	<div class="row">
+		<div class="content col-md-6 col-md-offset-1">
+			<div class="goods-image col-md-6">
+				<img src="${pageContext.request.contextPath}/images/<s:property value="#currProduct.image"/ id="goodsImg"> ">
 			</div>
-			<div class="goods-price">
-				<span>￥<s:property value="currProduct.price"/></span>
-			</div>
-			<form  id="cartForm" action="" method="post">
-			<input type="hidden" name="pid" value="<s:property value="currProduct.pid"/>"/>
-				<div class="goods-count">
-					<button class="sub"><</button>
-					<input type="text" name="number" value="1">
-					<button class="add">></button>
+			<div class="goods-detail col-md-6">
+				<div class="goods-name">
+					<span><s:property value="currProduct.pname"/></span>
 				</div>
-				<div class="goods-operate">
-					<input type="submit" name="buy" value="立即购买" onclick="buyNow()">
-					<input type="submit" name="addToTrolley" value="加入购物车" onclick="saveCart()">
+				<div class="goods-price">
+					<span>￥<s:property value="currProduct.price"/></span>
 				</div>
-			</form>
-		</div>
-	</div>
-	<div class="comment-list">
-		<div class="comment">
-			<div class="comment-username">
-				<span>评论人姓名</span>
+				<form  id="cartForm" action="" method="post">
+				<input type="hidden" name="pid" value="<s:property value="currProduct.pid"/>"/>
+					<div class="goods-count">
+						<button class="sub btn btn-default"><</button>
+						<input type="text" name="number" value="1">
+						<button class="add btn btn-default">></button>
+					</div>
+					<div class="goods-operate">
+						<input type="submit" name="buy" value="立即购买" onclick="buyNow()" class="col-md-4 btn btn-danger">
+						<input type="submit" name="addToTrolley" value="加入购物车" onclick="saveCart()" class="col-md-4 col-md-offset-1 btn btn-warning">
+					</div>
+				</form>
 			</div>
-			<div class="comment-detail">
-				<span>评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容</span>
-			</div>
 		</div>
-	</div>
-	<div class="add-comment">
-		<textarea placeholder="请写下你的评价"></textarea>
-		<div class="comment-button">
-			<button>提交评价</button>
+		<div class="comments col-md-10 col-md-offset-1">
+			<div class="comment-list col-md-10">
+				<div class="comment">
+					<div class="comment-username">
+						<span>评论人姓名</span>
+					</div>
+					<div class="comment-detail bg-warning">
+						<span>评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容</span>
+					</div>
+				</div>
+			</div>
+			<div class="add-comment col-md-7">
+				<textarea placeholder="请写下你的评价"></textarea>
+				<div class="comment-button">
+					<button class="col-md-offset-10 btn btn-info">提交评价</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/goodsDetail.js"></script>
 </html>

@@ -4,57 +4,62 @@
 <head>
 	<title>商品详情页</title>
 </head>
-<link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../css/goodsDetail.css">
+<!-- <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css"> -->
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <body>
 	<div class="header navbar navbar-default">
-		<div class="container">
-			<div class="headerA col-sm-2">
-				<a href="">首页</a>
-			</div>
+		<div class="headerA col-md-offset-10">
+			<a href="" class="navbar-brand">首页</a>
+			<a href="" class="navbar-brand">用户名</a>
 		</div>
 	</div>
-	<div class="content">
-		<div class="goods-image">
-			<img src="">
-		</div>
-		<div class="goods-detail">
-			<div class="goods-name">
-				<span>商品名称</span>
+	<div class="row">
+		<div class="content col-md-6 col-md-offset-1">
+			<div class="goods-image col-md-6">
+				<img src="../images/123.jpg" id="goodsImg">
 			</div>
-			<div class="goods-price">
-				<span>￥100.00</span>
-			</div>
-			<form action="" method="">
-				<div class="goods-count">
-					<button class="sub"><</button>
-					<input type="text" name="number" value="1">
-					<button class="add">></button>
+			<div class="goods-detail col-md-6">
+				<div class="goods-name">
+					<span>商品名称</span>
 				</div>
-				<div class="goods-operate">
-					<input type="submit" name="buy" value="立即购买">
-					<input type="submit" name="addToTrolley" value="加入购物车">
+				<div class="goods-price">
+					<span>￥100.00</span>
 				</div>
-			</form>
-		</div>
-	</div>
-	<div class="comment-list">
-		<div class="comment">
-			<div class="comment-username">
-				<span>评论人姓名</span>
-				<span>zhng</span>
+				<form action="" method="">
+					<div class="goods-count">
+						<button class="sub btn btn-default"><</button>
+						<input id="count" type="text" name="number" value="1">
+						<button class="add btn btn-default">></button>
+					</div>
+					<div class="goods-operate">
+						<input type="submit" name="buy" value="立即购买" class="col-md-4 btn btn-danger">
+						<input type="submit" name="addToTrolley" value="加入购物车" class="col-md-4 col-md-offset-1 btn btn-warning">
+					</div>
+				</form>
 			</div>
-			<div class="comment-detail">
-				<span>评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容</span>
-			</div>
 		</div>
-	</div>
-	<div class="add-comment">
-		<textarea placeholder="请写下你的评价"></textarea>
-		<div class="comment-button">
-			<button>提交评价</button>
+		<div class="comments col-md-10 col-md-offset-1">
+			<div class="comment-list col-md-10">
+				<div class="comment">
+					<div class="comment-username">
+						<span>评论人姓名</span>
+						<span>zhng</span>
+					</div>
+					<div class="comment-detail bg-warning">
+						<span class="">评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容</span>
+					</div>
+				</div>
+			</div>
+			<div class="add-comment col-md-7">
+				<textarea class="form-control" placeholder="请写下你的评价" rows="5"></textarea>
+				<div class="comment-button">
+					<button class="col-md-offset-10 btn btn-info">提交评价</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
+<script type="text/javascript" src="../js/goodsDetail.js"></script>
 </html>

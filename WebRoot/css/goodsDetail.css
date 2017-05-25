@@ -1,0 +1,60 @@
+#goodsImg{
+	width: 100%;
+}
+.goods-name{
+	margin-top: 20px;
+}
+.goods-name>span{
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	font-size: 20px;
+}
+.goods-price>span{
+	font-size: 40px;
+}
+.goods-count{
+	margin-top: 17%;
+	display: flex;
+}
+.goods-count>input{
+	width: 30px;
+}
+.goods-operate{
+	margin-top: 3%;
+}
+.comments{
+	margin-top: 50px;
+}
+.comment{
+	margin-top: 10px;
+	border-top: solid 1px #e3e3e3;
+}
+.add-comment{
+	margin-top: 30px;
+}
+textarea{
+	resize: none;
+	width: 80%;
+	height: 200px;
+}
+.comment-username{
+	margin: 10px 0 10px 10px;
+}
+.comment-username>span{
+	font-size: 16px;
+}
+.comment-detail{
+	height: 150px;
+	padding: 10px;
+}
+.comment-detail>span{
+	/*margin: */
+	font-size: 20px;
+}
+.comment-button{
+	margin-top: 10px;
+}
+.form-control{
+	height: 200px;
+}
