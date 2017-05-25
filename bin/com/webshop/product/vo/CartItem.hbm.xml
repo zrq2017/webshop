@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.webshop.product.vo.CartItem" table="shoppingcar">
+		<id name="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="number"></property>
+		<property name="description"></property></class>
+		<!-- 购买列表与商品的关联 -->
+		<many-to-one name="product" lazy="false" class="com.webshop.product.vo.CartItem" column="pid"></many-to-one>
+</hibernate-mapping>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+<!-- 配置连接池 -->
+<!-- 引入外部属性文件 -->
+<context:property-placeholder location="classpath:jdbc.properties"/>
+<!-- 配置c3p0连接池 -->
+<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+	<property name="driverClass" value="${jdbc.driver}"/>
+	<property name="jdbcUrl" value="${jdbc.url}"/>
+	<property name="user" value="${jdbc.user}"/>
+	<property name="password" value="${jdbc.password}"/>
+</bean>
+<!-- Hibernate的相关信息 -->
+<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+	<!-- 注入连接池 -->
+	<property name="dataSource" ref="dataSource"/>
+	<property name="hibernateProperties">
+		<props>
+			<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+			<prop key="hibernate.show_sql">true</prop>
+			<prop key="hibernate.format_sql">true</prop>
+			<prop key="hibernate.connection.autocommit">false</prop>
+			<prop key="hibernate.hbm2ddl.auto">update</prop>
+		</props>
+	</property>
+	<!-- 配置Hibernate的映射事件 -->
+	<property name="mappingResources">
+		<list>
+			<value>com/webshop/product/vo/Product.hbm.xml</value>
+			<value>com/webshop/user/vo/User.hbm.xml</value>
+		</list>
+	</property>
+	
+</bean>
+<!-- 事务管理 -->
+<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	<property name="sessionFactory" ref="sessionFactory"/>
+</bean>
+<!-- 开启注解事务 -->
+<tx:annotation-driven transaction-manager="transactionManager"/>
+
+
+<!-- =========Action的配置=============== -->
+<!-- 首页访问的Action -->
+<bean id="indexAction" class="com.webshop.index.action.IndexAction" scope="prototype">
+	<property name="productService" ref="productService"/>
+</bean>
+<!-- 用户Action -->
+<bean id="userAction" class="com.webshop.user.action.UserAction" scope="prototype">
+	<property name="userService" ref="userService"/>
+	<property name="productService" ref="productService"/>
+</bean>
+<!-- 产品Action -->
+<bean id="productAction" class="com.webshop.product.action.ProductAction" scope="prototype">
+	<property name="productService" ref="productService"/>
+</bean>
+<!-- 管理员Action -->
+<bean id="adminAction" class="com.webshop.admin.action.AdminAction" scope="prototype">
+	<property name="adminService" ref="adminService"/>
+	<property name="userService" ref="userService"/>
+</bean>
+
+
+<!-- =======service配置================= -->
+<!-- 用户service -->
+<bean id="userService" class="com.webshop.user.service.UserService">
+	<property name="userDao" ref="userDao"/>
+</bean>
+<!-- 产品service -->
+<bean id="productService" class="com.webshop.product.service.ProductService">
+	<property name="productDao" ref="productDao"/>
+</bean>
+<!-- 管理员service -->
+<bean id="adminService" class="com.webshop.admin.service.AdminService">
+	<property name="adminDao" ref="adminDao"/>
+</bean>
+
+<!-- ===========dao配置=========== -->
+<!-- 用户dao -->
+<bean id="userDao" class="com.webshop.user.dao.UserDao">
+	<property name="sessionFactory" ref="sessionFactory"/>
+</bean>
+<!-- 产品dao -->
+<bean id="productDao" class="com.webshop.product.dao.ProductDao">
+	<property name="sessionFactory" ref="sessionFactory"/>
+</bean>
+<!-- 管理员Dao -->
+<bean id="adminDao" class="com.webshop.admin.dao.AdminDao">
+	<property name="sessionFactory" ref="sessionFactory"/>
+</bean>
+
+</beans>
