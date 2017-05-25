@@ -6,6 +6,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.webshop.product.service.ProductService;
+import com.webshop.product.vo.Comment;
 import com.webshop.product.vo.Product;
 import com.webshop.user.service.UserService;
 import com.webshop.user.vo.User;
@@ -35,6 +36,24 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	 */
 	public void setProductService(ProductService productService) {
 		this.productService = productService;
+	}
+
+	private Integer pid;
+	
+	/**
+	 * @param pid the pid to set
+	 */
+	public void setPid(Integer pid) {
+		this.pid = pid;
+	}
+	
+	private String remark;
+
+	/**
+	 * @param remark the remark to set
+	 */
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 
 	//登录方法
@@ -102,5 +121,19 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	//跳回商家首页
 	public String merchant(){
 		return "merchant";
+	}
+
+	//发表评论
+	public String addComment(){
+		Comment c=new Comment();
+		c.setPid(pid);
+		c.setUser(user);
+		c.setRemark(remark);
+		productService.addComment(c);
+		Product p=productService.findByPid(pid);
+		ActionContext.getContext().getValueStack().set("currProduct",p);
+		List<Comment> pc=productService.findCommentByPid(pid);
+		ActionContext.getContext().getValueStack().set("currProductComment",pc);
+		return "detail";
 	}
 }

@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.webshop.product.service.ProductService;
 import com.webshop.product.vo.CartItem;
+import com.webshop.product.vo.Comment;
 import com.webshop.product.vo.Product;
 import com.webshop.user.vo.User;
 /**
@@ -30,16 +31,16 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 	public void setProductService(ProductService productService) {
 		this.productService = productService;
 	}
-	
-	private Integer pid;
-	
-	
-	/**
-	 * @param pid the pid to set
-	 */
-	public void setPid(Integer pid) {
-		this.pid = pid;
-	}
+//	
+//	private Integer pid;
+//	
+//	
+//	/**
+//	 * @param pid the pid to set
+//	 */
+//	public void setPid(Integer pid) {
+//		this.pid = pid;
+//	}
 	
 	private Integer number;
 	
@@ -61,7 +62,9 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 	//根据商品id查询
 	public String findByPid(){
 		Product p=productService.findByPid(product.getPid());
+		List<Comment> pc=productService.findCommentByPid(product.getPid());
 		ActionContext.getContext().getValueStack().set("currProduct",p);
+		ActionContext.getContext().getValueStack().set("currProductComment",pc);
 		return "detail";
 	}
 	

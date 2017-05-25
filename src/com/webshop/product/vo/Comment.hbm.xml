@@ -8,7 +8,7 @@
 			<generator class="native"></generator>
 		</id>
 		<property name="pid"></property>
-		<property name="user_id"></property>
+		<many-to-one name="user" lazy="false" class="com.webshop.user.vo.User" column="user_id"></many-to-one>
 		<property name="remark"></property>
 	</class>
 </hibernate-mapping>

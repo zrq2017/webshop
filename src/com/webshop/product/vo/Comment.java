@@ -1,9 +1,11 @@
 package com.webshop.product.vo;
 
+import com.webshop.user.vo.User;
+
 public class Comment {
 	private Integer id;
 	private Integer pid;//产品
-	private Integer user_id;//用户id
+	private User user;//用户id
 	private String remark;//评论
 	/**
 	 * @return the id
@@ -30,16 +32,16 @@ public class Comment {
 		this.pid = pid;
 	}
 	/**
-	 * @return the user_id
+	 * @return the user
 	 */
-	public Integer getUser_id() {
-		return user_id;
+	public User getUser() {
+		return user;
 	}
 	/**
-	 * @param user_id the user_id to set
+	 * @param user the user to set
 	 */
-	public void setUser_id(Integer user_id) {
-		this.user_id = user_id;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	/**
 	 * @return the remark
