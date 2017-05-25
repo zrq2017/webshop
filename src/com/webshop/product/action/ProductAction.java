@@ -102,6 +102,7 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 	//购买
 	public String buy(){
 		CartItem e=new CartItem();
+		product=productService.findByPid(product.getPid());
 		e.setProduct(product);
 		e.setNumber(number);
 		//保存已购买的订单信息

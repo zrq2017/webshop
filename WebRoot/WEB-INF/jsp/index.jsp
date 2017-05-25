@@ -26,7 +26,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 	<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
   </head>
+<script>
+function saveCart(){
+	document.getElementById("cartForm").action="${pageContext.request.contextPath}/product_addToCar.action";
+	document.getElementById("cartForm").submit();
+}
 
+function buyNow(){
+	document.getElementById("cartForm").action="${pageContext.request.contextPath}/product_buy.action";
+	document.getElementById("cartForm").submit();
+}
+</script>
 <body>
 	<div class="header navbar navbar-default">
 		<s:if test="#session.currUser == null">
@@ -39,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</s:if>
 		<s:else>
 		<s:if test="#session.currUser.type == 2">
-		<div class="logged col-md-offset-10">
+		<div class="logged col-md-offset-9">
 			<a href="${pageContext.request.contextPath}/index.action" class="navbar-brand">首页</a>
 			<span class="navbar-brand"><s:property value="#session.currUser.username"/></span>
 			<a href="${pageContext.request.contextPath}/index_logout.action"  class="navbar-brand">[注销]</a>
@@ -48,14 +58,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</s:if>
 		<s:if test="#session.currUser.type == 1">
 		<!-- 商家登录 -->
-		<div class="logged col-md-offset-10">
+		<div class="logged col-md-offset-9">
 			<a class="navbar-brand" href="">首页</a>
 			<a class="navbar-brand">商家名</a>
 		</div>
 		</s:if>
 		<s:if test="#session.currUser.type == 0">
 		<!-- 管理员登录 -->
-		<div class="logged col-md-offset-10">
+		<div class="logged col-md-offset-9">
 			<a class="navbar-brand" href="">首页</a>
 			<a class="navbar-brand">管理员名</a>
 		</div>
