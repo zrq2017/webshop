@@ -122,6 +122,10 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	public String merchant(){
 		return "merchant";
 	}
+	//跳回管理员首页
+	public String admin(){
+		return "admin";
+	}
 
 	//发表评论
 	public String addComment(){

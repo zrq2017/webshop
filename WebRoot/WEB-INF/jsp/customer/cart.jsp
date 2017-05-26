@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <body>
 	<div class="header navbar navbar-default">
 		<div class="headerA"><a href="${pageContext.request.contextPath}/index.action" class="navbar-brand">首页</a></div>
-		<a href="" class="navbar-brand">用户名</a>
+		<span class="navbar-brand"><s:property value="#session.currUser.username"/></span>
 	</div>
 
 	<div class="content col-md-6 col-md-offset-2">

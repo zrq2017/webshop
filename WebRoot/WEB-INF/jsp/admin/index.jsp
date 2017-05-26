@@ -31,9 +31,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<span class="navbar-brand">管理员管理页面</span>
 		</div>
 		<div class="col-md-offset-10">
-			<a href="" class="navbar-brand">首页</a>
-			<span class="navbar-brand">管理员用户名</span>
-			<a href="" class="navbar-brand">[注销]</a>
+			<a href="${pageContext.request.contextPath}/index.action" class="navbar-brand">首页</a>
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/user_admin.action"><s:property value="#session.currUser.username"/></a>
+			<a href="${pageContext.request.contextPath}/index_logout.action" class="navbar-brand">[注销]</a>
 		</div>
 	</div>
 

@@ -68,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<input id="repassword" type="password" name="repassword" placeholder="请重复输入该密码" class="form-control">
 							<p class="error hidden">与第一次输入的密码不同</p>
 						</div>
-						<input type="button" name="" value="注册" class="btn btn-success col-md-offset-8">
+						<input type="submit" name="" value="注册" class="btn btn-success col-md-offset-8">
 					</form>
 				</div>
 			</div>

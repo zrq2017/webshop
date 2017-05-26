@@ -8,6 +8,7 @@ public class CartItem {
 	private int id;
 	//商品项
 	private Product product;
+	private int pid;
 	//数量
 	private int number;
 	//商品描述
@@ -15,6 +16,22 @@ public class CartItem {
 	//小计
 	private double totalPrice;
 	
+	/**
+	 * @return the pid
+	 */
+	public int getPid() {
+		return pid;
+	}
+	/**
+	 * @param pid the pid to set
+	 */
+	public void setPid(int pid) {
+		if(product!=null){
+			this.pid = product.getPid();
+		}else{
+			this.pid = pid;
+		}
+	}
 	/**
 	 * @return the id
 	 */

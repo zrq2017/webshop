@@ -30,10 +30,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="col-md-offset-1">
 			<span class="navbar-brand">商家管理商品页</span>
 		</div>
-		<div class="headerA col-md-offset-10">
+		<div class="headerA col-md-offset-9">
 			<a href="${pageContext.request.contextPath}/index.action" class="navbar-brand">首页</a>
-			<span class="navbar-brand">商家姓名</span>
-			<a href="" class="navbar-brand">[注销]</a>
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/user_merchant.action"><s:property value="#session.currUser.username"/></a>
+			<a href="${pageContext.request.contextPath}/index_logout.action" class="navbar-brand">[注销]</a>
 		</div>
 	</div>
 	<div class="content col-md-10 col-md-offset-1">
