@@ -76,7 +76,7 @@ function buyNow(x){
 	<div class="content col-md-10 col-md-offset-1">
 		<div class="goodsList col-md-12 row">
 		<s:iterator var="p" value="#session.plist">
-			<div class="goods col-md-2">
+			<div class="goods col-md-3">
 				<div class="goodsImage">
 					<img src="${pageContext.request.contextPath}/images/<s:property value="#p.image"/>">
 				</div>

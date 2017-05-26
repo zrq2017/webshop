@@ -106,11 +106,11 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 	//加入购物车
 	public String addToCar(){
 		if(ActionContext.getContext().getSession().get("currUser")==null){
-			System.out.println("sssssssssssss");
 			return "login";
 		}
 		CartItem e=new CartItem();
 		product=productService.findByPid(product.getPid());
+		System.out.println("***************pid:"+product.getPid()+product.getPname());
 		e.setProduct(product);
 		e.setNumber(number);
 		List<CartItem> car=(List<CartItem>)ActionContext.getContext().getSession().get("car");
