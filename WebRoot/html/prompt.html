@@ -4,13 +4,16 @@
 <head>
 	<title>提示页</title>
 </head>
+<link rel="stylesheet" type="text/css" href="../css/prompt.css">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <body>
-	<div class="header">
-		<div class="headerA">
-			<a href="">首页</a>
+	<div class="header  navbar navbar-default">
+		<div class="headerA col-md-offset-10">
+			<a href="${pageContext.request.contextPath}/index.action" class="navbar-brand">首页</a>
 		</div>
 	</div>
-	<div class="content">
+	<div class="content col-md-3 col-md-offset-4">
 		<span>操作成功</span>
 	</div>
 </body>
