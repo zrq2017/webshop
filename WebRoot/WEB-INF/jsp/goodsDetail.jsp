@@ -72,7 +72,10 @@ function buyNow(){
 		</div>
 		<div class="comments col-md-10 col-md-offset-1">
 			<div class="comment-list col-md-10">
-			<s:iterator var="pc" value="currProductComment">
+				<ul class="con-select nav nav-tabs">
+					<li class="active"><a>商品评价</a></li>
+				</ul>
+				<s:iterator var="pc" value="currProductComment">
 				<div class="comment">
 					<div class="comment-username">
 						<span><s:property value="#pc.user.username"/></span>
@@ -81,13 +84,15 @@ function buyNow(){
 						<span><s:property value="#pc.remark"/></span>
 					</div>
 				</div>
-			</s:iterator>
+				</s:iterator>
 			</div>
 			<div class="add-comment col-md-7">
 			<form action="${pageContext.request.contextPath}/user_addComment.action" method="post">
 				<input type="hidden" name="pid" value="<s:property value="currProduct.pid"/>">
 				<input type="hidden" name="uid" value="<s:property value="#session.currUser.uid"/>">
-				<textarea placeholder="请写下你的评价" name="remark"></textarea>
+				<span class="no_comment_span">会员才可以进行评价，请先<a href="">登录</a></span>
+				<div class="no_comment"></div>
+				<textarea class="form-control" placeholder="请写下你的评价" rows="5" name="remark"></textarea>
 				<div class="comment-button">
 					<input type="submit" class="col-md-offset-10 btn btn-info" value="提交评价"/>
 				</div>

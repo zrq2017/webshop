@@ -28,7 +28,8 @@
 }
 .comment{
 	margin-top: 10px;
-	border-top: solid 1px #e3e3e3;
+	padding-bottom: 10px;
+	border-bottom: solid 1px #e3e3e3;
 }
 .add-comment{
 	margin-top: 30px;
@@ -47,6 +48,8 @@ textarea{
 .comment-detail{
 	height: 150px;
 	padding: 10px;
+	width: 90%;
+	margin: 0 auto;
 }
 .comment-detail>span{
 	/*margin: */
@@ -57,4 +60,18 @@ textarea{
 }
 .form-control{
 	height: 200px;
+}
+.no_comment{
+	position: absolute;
+	z-index: 100;
+	background-color: #000;
+	opacity: 0.1;
+}
+.no_comment_span{
+	position: absolute;
+	z-index: 101;
+	opacity: 1;
+	font-size: 18px;
+	top: 46px;
+	left: 60px;
 }
