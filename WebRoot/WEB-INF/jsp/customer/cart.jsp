@@ -51,8 +51,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<span>操作</span>
 				</div>
 			</div>
-			<s:iterator var="c" value="#session.car"></s:iterator>
-			<form action="" method="">
+			<s:iterator var="c" value="#session.car">
+			<form action="${pageContext.request.contextPath}/product_deleteItem.action" method="post">
+			<input type="hidden" name="pid" value="<s:property value="#c.product.pid"/>"/>
 				<div class="goods">
 					<div class="goods-image goods_table col-md-2">
 						<img src="${pageContext.request.contextPath}/images/<s:property value="#c.product.image"/>">
@@ -74,10 +75,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 					<div class="goods-operate goods_table col-md-2">
 						<input type="submit" name="" class="btn btn-danger" value="购买">
-						<a href="">删除</a>
+						<a href="${pageContext.request.contextPath}/product_deleteItem.action?pid=<s:property value="#c.product.pid"/>">删除</a>
 					</div>
 				</div>
 			</form>
+			</s:iterator>
 		</div>
 		</s:if>
 		<s:else>

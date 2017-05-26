@@ -110,8 +110,10 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		}
 		CartItem e=new CartItem();
 		product=productService.findByPid(product.getPid());
-		System.out.println("***************pid:"+product.getPid()+product.getPname());
 		e.setProduct(product);
+		if(number==null){
+			number=1;
+		}
 		e.setNumber(number);
 		List<CartItem> car=(List<CartItem>)ActionContext.getContext().getSession().get("car");
 		if(car!=null&&car.size()>0){
@@ -134,6 +136,26 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		return "cart";
 	}
 	
+	//从购物车删除
+	public String deleteItem(){
+		List<CartItem> car=(List<CartItem>)ActionContext.getContext().getSession().get("car");
+		if(car!=null&&car.size()>0){
+			for(int i=0;i<car.size();i++){
+				if(car.get(i).getProduct().getPid()== product.getPid()){
+					car.remove(i);
+					break;
+				}
+			}
+		}
+		if(car!=null&&car.size()>0){
+			ActionContext.getContext().getSession().put("car",car);
+		}else{
+			ActionContext.getContext().getSession().remove("car");
+		}
+		
+		return "cart";
+	}
+	
 	//购买
 	public String buy(){
 		if(ActionContext.getContext().getSession().get("currUser")==null){
@@ -142,6 +164,9 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		CartItem e=new CartItem();
 		product=productService.findByPid(product.getPid());
 		e.setProduct(product);
+		if(number==null){
+			number=1;
+		}
 		e.setNumber(number);
 		//保存已购买的订单信息
 		productService.save(e);
