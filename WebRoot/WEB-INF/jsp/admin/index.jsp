@@ -111,7 +111,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</s:if>
 		</div>
 
-		<div class="vipManage  class="vip_gn"">
+		<div id="vipManage"  class="vip_gn">
 			<div class="vip-list">
 				<h1>会员列表</h1>
 				<table class="unvip table table-hover">
