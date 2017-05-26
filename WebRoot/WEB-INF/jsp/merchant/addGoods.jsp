@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<s:if test="editProduct!=null">
 		<div class="content col-md-4 col-md-offset-2">
-		<form action="${pageContext.request.contextPath}/product_save.action" method="post">
+		<form action="${pageContext.request.contextPath}/product_save.action" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="goods_name">商品名称</label>
 				<input class="form-control" type="text" name="pname" placeholder="请输入商品名称" value="<s:property value="editProduct.pname"/>" >
@@ -54,8 +54,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="form-group">
 				<label for="goods_img">商品图片</label>
-				<img src="${pageContext.request.contextPath}/images/<s:property value="editProduct.images"/>">
-				<input type="file" name="image">
+				<img src="${pageContext.request.contextPath}/images/<s:property value="editProduct.image"/>">
+				<input type="file" name="upload">
 			</div>
 			<input type="hidden" name="user_id" value="<s:property value="#session.currUser.uid"/>"/>
 			<input type="hidden" name="pid" value="<s:property value="editProduct.pid"/>"/>
@@ -64,8 +64,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	</s:if>
 	<s:else>
-		<div class="content">
-		<form action="${pageContext.request.contextPath}/product_save.action" method="post">
+		<div class="content col-md-4 col-md-offset-2">
+		<form action="${pageContext.request.contextPath}/product_save.action" method="post"  enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="goods_name">商品名称</label>
 				<input id="goods_name" type="text" name="pname" placeholder="请输入商品名称" class="form-control">
@@ -83,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="form-group">
 				<label for="goods_img">商品图片</label>
-				<input id="goods_img" type="file" name="image">
+				<input id="goods_img" type="file" name="upload">
 			</div>
 			<input type="hidden" name="user_id" value="<s:property value="#session.currUser.uid"/>"/>
 			<input class="save btn btn-success col-md-offset-10" type="submit" value="保存">

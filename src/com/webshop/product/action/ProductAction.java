@@ -1,8 +1,12 @@
 package com.webshop.product.action;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -52,6 +56,32 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		this.number = number;
 	}
 
+	//用于接受商品图片路径的几个参数，上传文件
+	private File upload;
+	private String uploadFileName;
+	private String uploadContentType;
+	
+	/**
+	 * @param upload the upload to set
+	 */
+	public void setUpload(File upload) {
+		this.upload = upload;
+	}
+
+	/**
+	 * @param uploadFileName the uploadFileName to set
+	 */
+	public void setUploadFileName(String uploadFileName) {
+		this.uploadFileName = uploadFileName;
+	}
+
+	/**
+	 * @param uploadContentType the uploadContentType to set
+	 */
+	public void setUploadContentType(String uploadContentType) {
+		this.uploadContentType = uploadContentType;
+	}
+
 	//查询所有商品
 	public String findAll(){
 		List<Product> plist=productService.findAll();
@@ -76,6 +106,7 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 	//加入购物车
 	public String addToCar(){
 		CartItem e=new CartItem();
+		product=productService.findByPid(product.getPid());
 		e.setProduct(product);
 		e.setNumber(number);
 		List<CartItem> car=(List<CartItem>)ActionContext.getContext().getSession().get("car");
@@ -102,6 +133,7 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 	//购买
 	public String buy(){
 		CartItem e=new CartItem();
+		product=productService.findByPid(product.getPid());
 		e.setProduct(product);
 		e.setNumber(number);
 		//保存已购买的订单信息
@@ -133,6 +165,15 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 	// 保存商品
 	public String save() throws IOException {
 		Product p = productService.findByPid(product.getPid());
+		if(upload!=null){
+			//获得上传图片的服务器的路径
+			String path=ServletActionContext.getServletContext().getRealPath("/images");
+			//创建文件类型对象
+			File diskFile=new File(path+"//"+uploadFileName);
+			//文件上传
+			FileUtils.copyFile(upload, diskFile);
+			product.setImage(uploadFileName);
+		}
 		if(p!=null){
 			//根据ID查询到商品，则更新
 			productService.update(product);
@@ -148,11 +189,5 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		product = productService.findByPid(product.getPid());
 		ActionContext.getContext().getValueStack().set("editProduct", product);
 		return "add";
-	}
-
-	// 更新商品
-	public String update() throws IOException {
-		productService.update(product);
-		return "update";
 	}
 }
