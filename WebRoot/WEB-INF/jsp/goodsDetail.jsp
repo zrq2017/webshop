@@ -60,7 +60,7 @@ function buyNow(){
 				<input type="hidden" name="pid" value="<s:property value="currProduct.pid"/>"/>
 					<div class="goods-count">
 						<input class="sub btn btn-default" value="<"/>
-						<input type="text" name="number" value="1">
+						<input id="count" type="text" name="number" value="1">
 						<input class="add btn btn-default" value=">"/>
 					</div>
 					<div class="goods-operate">
