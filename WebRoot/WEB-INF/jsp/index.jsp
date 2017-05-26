@@ -61,6 +61,7 @@ function buyNow(){
 		<div class="logged col-md-offset-9">
 			<a class="navbar-brand" href="">首页</a>
 			<a class="navbar-brand">商家名</a>
+			<a href="${pageContext.request.contextPath}/index_logout.action"  class="navbar-brand">[注销]</a>
 		</div>
 		</s:if>
 		<s:if test="#session.currUser.type == 0">
@@ -68,6 +69,7 @@ function buyNow(){
 		<div class="logged col-md-offset-9">
 			<a class="navbar-brand" href="">首页</a>
 			<a class="navbar-brand">管理员名</a>
+			<a href="${pageContext.request.contextPath}/index_logout.action"  class="navbar-brand">[注销]</a>
 		</div>
 		</s:if>
 		</s:else>
