@@ -90,12 +90,16 @@ function buyNow(){
 			<form action="${pageContext.request.contextPath}/user_addComment.action" method="post">
 				<input type="hidden" name="pid" value="<s:property value="currProduct.pid"/>">
 				<input type="hidden" name="uid" value="<s:property value="#session.currUser.uid"/>">
-				<span class="no_comment_span">会员才可以进行评价，请先<a href="">登录</a></span>
+				<s:if test="#session.currUser==null">
+				<span class="no_comment_span">会员才可以进行评价，请先<a href="${pageContext.request.contextPath}/index_login.action">登录</a></span>
 				<div class="no_comment"></div>
+				</s:if>
 				<textarea class="form-control" placeholder="请写下你的评价" rows="5" name="remark"></textarea>
+				<s:if test="#session.currUser!=null">
 				<div class="comment-button">
 					<input type="submit" class="col-md-offset-10 btn btn-info" value="提交评价"/>
 				</div>
+				</s:if>
 			</form>
 			</div>
 		</div>
