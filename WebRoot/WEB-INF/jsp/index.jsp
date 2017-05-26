@@ -26,14 +26,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
   </head>
 <script>
-function saveCart(){
-	document.getElementById("cartForm").action="${pageContext.request.contextPath}/product_addToCar.action";
-	document.getElementById("cartForm").submit();
+function saveCart(x){
+	document.getElementById("cartForm"+x).action="${pageContext.request.contextPath}/product_addToCar.action";
+	document.getElementById("cartForm"+x).submit();
 }
 
-function buyNow(){
-	document.getElementById("cartForm").action="${pageContext.request.contextPath}/product_buy.action";
-	document.getElementById("cartForm").submit();
+function buyNow(x){
+	document.getElementById("cartForm"+x).action="${pageContext.request.contextPath}/product_buy.action";
+	document.getElementById("cartForm"+x).submit();
 }
 </script>
 <body>
@@ -84,11 +84,11 @@ function buyNow(){
 					<div class="goodsName"><a href="${pageContext.request.contextPath}/product_findByPid.action?pid=<s:property value="#p.pid"/>"><s:property value="#p.pname"/></a></div>
 					<div class="goodsPrice"><span><s:property value="#p.price"/>元</span></div>
 				</div>
-				<form action="" method="">
-				<input type="hidden" name="pid" value="<s:property value="currProduct.pid"/>">
+				<form  id="cartForm<s:property value="#p.pid"/>" action="" method="">
+				<input type="hidden" name="pid" value="<s:property value="#p.pid"/>">
 				<div class="goodsOperate">
-					<input type="submit" name="" class="addToCar btn btn-warning" value="加入购物车" onclick="buyNow()">
-					<input type="submit" class="buy btn btn-danger" value="购买" onclick="saveCart()">
+					<input type="submit" name="" class="addToCar btn btn-warning" value="加入购物车" onclick="buyNow(<s:property value="#p.pid"/>)">
+					<input type="submit" class="buy btn btn-danger" value="购买" onclick="saveCart(<s:property value="#p.pid"/>)">
 				</div>
 				</form>
 			</div>

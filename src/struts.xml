@@ -25,6 +25,7 @@
 			<result name="showCart">/WEB-INF/jsp/customer/cart.jsp</result>
 			<result name="merchant">/WEB-INF/jsp/merchant/index.jsp</result>
 			<result name="add">/WEB-INF/jsp/merchant/addGoods.jsp</result>
+			<result name="login">/WEB-INF/jsp/loginAndSign.jsp</result>
 		</action>
 		<action name="admin_*" class="adminAction" method="{1}">
 			<result name="admin">/WEB-INF/jsp/admin/index.jsp</result>
