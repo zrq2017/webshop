@@ -87,8 +87,8 @@ function buyNow(x){
 				<form  id="cartForm<s:property value="#p.pid"/>" action="" method="">
 				<input type="hidden" name="pid" value="<s:property value="#p.pid"/>">
 				<div class="goodsOperate">
-					<input type="submit" name="" class="addToCar btn btn-warning col-md-5" value="加入购物车" onclick="buyNow(<s:property value="#p.pid"/>)">
-					<input type="submit" class="buy btn btn-danger col-md-3 col-md-offset-1" value="购买" onclick="saveCart(<s:property value="#p.pid"/>)">
+					<input type="submit" name="" class="addToCar btn btn-warning col-md-5" value="加入购物车" onclick="saveCart(<s:property value="#p.pid"/>)">
+					<input type="submit" class="buy btn btn-danger col-md-3 col-md-offset-1" value="购买" onclick="buyNow(<s:property value="#p.pid"/>)">
 				</div>
 				</form>
 			</div>

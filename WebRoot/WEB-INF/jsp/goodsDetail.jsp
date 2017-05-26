@@ -41,7 +41,7 @@ function buyNow(){
 	<div class="header navbar navbar-default">
 		<div class="headerA col-md-offset-10">
 			<a href="${pageContext.request.contextPath}/index.action" class="navbar-brand">首页</a>
-			<a href="" class="navbar-brand">用户名</a>
+			<a href="" class="navbar-brand"><s:property value="#session.currUser.username"/></a>
 		</div>
 	</div>
 	<div class="row">
