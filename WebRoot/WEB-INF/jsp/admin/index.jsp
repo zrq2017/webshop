@@ -20,24 +20,54 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/managerPage.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
   </head>
 <body>
-	<div class="header">
-		<span>管理员用户名</span>
+	<div class="header navbar navbar-default">
+		<div class="col-md-offset-1">
+			<span class="navbar-brand">管理员管理页面</span>
+		</div>
+		<div class="col-md-offset-10">
+			<a href="" class="navbar-brand">首页</a>
+			<span class="navbar-brand">管理员用户名</span>
+			<a href="" class="navbar-brand">[注销]</a>
+		</div>
 	</div>
 
-	<div class="content">
-		<div class="select">
-			<a class="select-seller">商家管理</a>
-			<a class="select-vip">会员管理</a>
-		</div>
+	<div class="content col-md-10 col-md-offset-1">
+		<ul class="select nav nav-tabs">
+			<li class="active"><a class="select-seller">商家管理</a></li>
+			<li><a class="select-vip">会员管理</a></li>
+		</ul>
 
-		<div class="sellerManage">
+		<div id="sellerManage" class="seller_gb">
 		<s:if test="#session.nmlist!=null">
 			<div class="unseller-list">
-			<h1>未审核商家列表</h1>
-			<s:iterator var="m" value="#session.nmlist">
+				<h1>未审核商家列表</h1>
+				<table class="unseller table table-hover">
+					<thead>
+						<tr>
+							<th class="col-md-3">商家名称</th>
+							<th class="col-md-3">商家类别</th>
+							<th class="col-md-3">操作</th>
+						</tr>
+					</thead>
+					<s:iterator var="m" value="#session.nmlist">
+					<tr>
+						<td class="col-md-3"><s:property value="#m.username"/></td>
+						<td class="col-md-3">leibie</td>
+						<td class="col-md-3">
+							<a class="unseller-pass" href="${pageContext.request.contextPath}/admin_pass.action?uid=<s:property value="#m.uid"/>">通过审核</a>
+							<a class="unseller-reject" href="${pageContext.request.contextPath}/admin_refuse.action?uid=<s:property value="#m.uid"/>">拒绝申请</a>
+						</td>
+					</tr>
+					</s:iterator>
+				</table>
+			<!-- <s:iterator var="m" value="#session.nmlist">
+
 				<div class="unseller">
 					<div class="unseller-name"><span><s:property value="#m.username"/></span></div>
 					<div class="unseller-type"><span>商家类别</span></div>
@@ -46,39 +76,72 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<a class="unseller-reject" href="${pageContext.request.contextPath}/admin_refuse.action?uid=<s:property value="#m.uid"/>">拒绝申请</a>
 					</div>
 				</div>
-			</s:iterator>
+			</s:iterator> -->
 			</div>
-			</s:if>
-			<s:if test="#session.mlist!=null">
+		</s:if>
+		<s:if test="#session.mlist!=null">
 			<div class="seller-list">
 			<h1>已审核商家列表</h1>
-			<s:iterator var="m" value="#session.mlist">
-				<div class="seller">
+				<table class="seller table table-hover">
+					<thead>
+						<tr>
+							<th class="col-md-3">商家名称</th>
+							<th class="col-md-3">商家类别</th>
+							<th class="col-md-3">操作</th>
+						</tr>
+					</thead>
+					<s:iterator var="m" value="#session.mlist">
+					<tr>
+						<td class="col-md-3"><s:property value="#m.username"/></td>
+						<td class="col-md-3">leibie</td>
+						<td class="col-md-3">
+							<a class="seller-delete" href="${pageContext.request.contextPath}/admin_refuse.action?uid=<s:property value="#m.uid"/>">删除该商家</a>
+						</td>
+					</tr>
+					</s:iterator>
+				</table>
+				<!-- <div class="seller">
 					<div class="seller-name"><span><s:property value="#m.username"/></span></div>
 					<div class="seller-type"><span>商家类别</span></div>
 					<div class="seller-button">
 						<a class="seller-delete" href="${pageContext.request.contextPath}/admin_refuse.action?uid=<s:property value="#m.uid"/>">删除该商家</a>
 					</div>
-				</div>
-			</s:iterator>
+				</div> -->
 			</div>
 			</s:if>
 		</div>
 
-		<div class="vipManage">
+		<div class="vipManage  class="vip_gn"">
 			<div class="vip-list">
 				<h1>会员列表</h1>
-				<s:iterator var="c" value="#session.clist">
-					<div class="vip">
+				<table class="unvip table table-hover">
+					<thead>
+						<tr>
+							<th class="col-md-3">会员账号</th>
+							<th class="col-md-3">会员密码</th>
+							<th class="col-md-3">操作</th>
+						</tr>
+					</thead>
+					<s:iterator var="c" value="#session.clist">
+					<tr>
+						<td class="col-md-3"><s:property value="#c.username"/></td>
+						<td class="col-md-3"><s:property value="#c.password"/></td>
+						<td class="col-md-3">
+							<a class="vip-delete" href="${pageContext.request.contextPath}/admin_refuse.action?uid=<s:property value="#c.uid"/>">删除该会员</a>
+						</td>
+					</tr>
+					</s:iterator>
+				</table>
+					<!-- <div class="vip">
 						<div class="vip-name"><span><s:property value="#c.username"/></span></div>
 						<div class="vip-account"><s:property value="#c.password"/></div>
 						<div class="vip-button">
 							<a class="vip-delete" href="${pageContext.request.contextPath}/admin_refuse.action?uid=<s:property value="#c.uid"/>">删除该会员</a>
 						</div>
-					</div>
-				</s:iterator>
+					</div> -->
 			</div>
 		</div>
 	</div>
 </body>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/managerPage.js"></script>
 </html>

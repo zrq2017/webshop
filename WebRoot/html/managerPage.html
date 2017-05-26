@@ -4,61 +4,91 @@
 <head>
 	<title>管理员页面</title>
 </head>
+<link rel="stylesheet" type="text/css" href="../css/managerPage.css">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <body>
-	<div class="header">
-		<span>管理员用户名</span>
-	</div>
-
-	<div class="content">
-		<div class="select">
-			<a class="select-seller">商家管理</a>
-			<a class="select-vip">会员管理</a>
+	<div class="header navbar navbar-default">
+		<div class="col-md-offset-1">
+			<span class="navbar-brand">管理员管理页面</span>
 		</div>
+		<div class="col-md-offset-10">
+			<a href="" class="navbar-brand">首页</a>
+			<span class="navbar-brand">管理员用户名</span>
+			<a href="" class="navbar-brand">[注销]</a>
+		</div>
+	</div> 
+	<div class="content col-md-10 col-md-offset-1">
+		<ul class="select nav nav-tabs">
+			<li class="active"><a class="select-seller">商家管理</a></li>
+			<li><a class="select-vip">会员管理</a></li>
+		</ul>
 
-		<div class="sellerManage">
+		<div id="sellerManage" class="seller_gb">
 			<div class="unseller-list">
-				<div class="unseller">
-					<div class="unseller-name"><span>商家名称</span></div>
-					<div class="unseller-type"><span>商家类别</span></div>
-					<div class="unseller-button">
-						<a class="unseller-pass" href="">通过审核</a>
-						<a class="unseller-reject" href="">拒绝申请</a>
-					</div>
-				</div>
+				<h1>未审核商家列表</h1>
+				<table class="unseller table table-hover">
+					<thead>
+						<tr>
+							<th class="col-md-3">商家名称</th>
+							<th class="col-md-3">商家类别</th>
+							<th class="col-md-3">操作</th>
+						</tr>
+					</thead>
+					<tr>
+						<td class="col-md-3">mincheng</td>
+						<td class="col-md-3">leibie</td>
+						<td class="col-md-3">
+							<a class="unseller-pass" href="">通过审核</a>
+							<a class="unseller-reject" href="">拒绝申请</a>
+						</td>
+					</tr>
+				</table>
 			</div>
 
 			<div class="seller-list">
-				<div class="seller">
-					<div class="seller-name"><span>商家名称</span></div>
-					<div class="seller-type"><span>商家类别</span></div>
-					<div class="seller-button">
-						<a class="seller-delete" href="">删除该商家</a>
-					</div>
-				</div>
+				<h1>已审核商家列表</h1>
+				<table class="seller table table-hover">
+					<thead>
+						<tr>
+							<th class="col-md-3">商家名称</th>
+							<th class="col-md-3">商家类别</th>
+							<th class="col-md-3">操作</th>
+						</tr>
+					</thead>
+					<tr>
+						<td class="col-md-3">mincheng</td>
+						<td class="col-md-3">leibie</td>
+						<td class="col-md-3">
+							<a class="seller-delete" href="">删除该商家</a>
+						</td>
+					</tr>
+				</table>
 			</div>
 		</div>
 
-		<div class="vipManage">
+		<div id="vipManage" class="vip_gn">
 			<div class="unvip-list">
-				<div class="unvip">
-					<div class="unvip-name"><span>会员昵称</span></div>
-					<div class="unvip-account"><span>会员账号</span></div>
-					<div class="unvip-button">
-						<a class="unvip-pass" href="">通过审核</a>
-						<a class="unvip-reject" href="">拒绝申请</a>
-					</div>
-				</div>
-				<div class="vip-list">
-					<div class="vip">
-						<div class="vip-name"><span>会员昵称</span></div>
-						<div class="vip-account"><span>会员账号</span></div>
-						<div class="vip-button">
-							<a class="vip-delete" href="">删除该会员</a>
-						</div>
-					</div>
-				</div>
+				<h1>会员列表</h1>
+				<table class="unvip table table-hover">
+					<thead>
+						<tr>
+							<th class="col-md-3">会员账号</th>
+							<th class="col-md-3">会员密码</th>
+							<th class="col-md-3">操作</th>
+						</tr>
+					</thead>
+					<tr>
+						<td class="col-md-3">mincheng</td>
+						<td class="col-md-3">leibie</td>
+						<td class="col-md-3">
+							<a class="unvip-reject" href="">删除该会员</a>
+						</td>
+					</tr>
+				</table>
 			</div>
 		</div>
 	</div>
 </body>
+<script type="text/javascript" src="../js/managerPage.js"></script>
 </html>
