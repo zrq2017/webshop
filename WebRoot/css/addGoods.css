@@ -1,0 +1,9 @@
+.content{
+	margin-top: 50px;
+}
+.goods_price{
+	display: flex;
+}
+.goods_price>span{
+	line-height: 34px;
+}
