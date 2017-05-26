@@ -8,6 +8,8 @@ let login = document.getElementById('login');
 let sign = document.getElementById('sign');
 let li = document.getElementsByTagName('li');
 let p = document.getElementsByTagName('p');
+
+
 loginButton.onclick = () => {
 	li[0].classList.add('active');
 	li[1].classList.remove('active');
@@ -25,9 +27,6 @@ signButton.onclick = () => {
 	sign.classList.add('sign-gb');
 }
 repassword.onblur = () => {
-	console.log(password);
-	console.log(password.value);
-	console.log(repassword.value);
 	if(password.value != repassword.value){
 		password_group.classList.add('has-error');
 		repassword_group.classList.add('has-error');

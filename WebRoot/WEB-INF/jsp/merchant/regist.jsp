@@ -20,28 +20,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sellerSign.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
   </head>
   
   <body>
-	<div class="header">
-		<div class="headerA">
+	<div class="header navbar navbar-default">
+		<div class="col-md-offset-1">
+			<span class="navbar-brand">商家注册页面</span>
+		</div>
+		<div class="headerA col-md-offset-10">
 			<a href="${pageContext.request.contextPath}/index.action">首页</a>
 		</div>
 	</div>
-	<div class="content">
+	<div class="content col-md-2 col-md-offset-1">
 		<form action="${pageContext.request.contextPath}/user_merchantRegist.action" method="post">
 			<div class="login">
-				<span class="accountWarning"><s:actionerror/></span>
-				<input type="text" name="username" placeholder="请输入账号">
-				<input type="password" name="password" placeholder="请输入密码">
-				<span class="passwordWarning">与第一次输入的密码不符</span>
-				<input type="password" name="repassword" placeholder="请再次输入密码">
+				<div class="form-group">
+					<label for="username">账号</label>
+					<input id="username" type="text" name="username" placeholder="请输入账号" class="form-control">
+					<p class="hidden"><s:actionerror/></p>
+				</div>
+				<div class="form-group">
+					<label for="password">密码</label>
+					<input id="password" type="password" name="username" placeholder="请输入密码" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="repassword">重复输入密码</label>
+					<input id="repassword" type="password" name="password" placeholder="请再次输入密码" class="form-control">
+					<p class="hidden">与第一次输入的密码不符</p>
+				</div>
 			</div>
-			<div class="login-button">
-				<input type="submit" name="" value="注册">
-			</div>
+			<input type="submit" name="" value="注册" class="btn btn-success col-md-offset-8">
 		</form>
 	</div>
 </body>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/sellerSign.js"></script>
 </html>
