@@ -20,16 +20,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/prompt.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
   </head>
   
   <body>
-	<div class="header">
-		<div class="headerA">
-			<a href="${pageContext.request.contextPath}/index.action">首页</a>
+	<div class="header  navbar navbar-default">
+		<div class="headerA col-md-offset-10">
+			<a href="${pageContext.request.contextPath}/index.action" class="navbar-brand">首页</a>
 		</div>
 	</div>
-	<div class="content">
+	<div class="content  col-md-3 col-md-offset-4">
 		<span><s:actionmessage/></span>
 	</div>
 </body>
