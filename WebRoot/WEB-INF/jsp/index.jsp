@@ -40,7 +40,7 @@ function buyNow(x){
 	<div class="header navbar navbar-default">
 		<s:if test="#session.currUser == null">
 		<div class="noLogged">
-			<div class="noLogged-a">
+			<div class="noLogged-a col-md-offset-10">
 				<a href="${pageContext.request.contextPath}/index_login.action" class="navbar-brand">登录</a>
 				<a href="${pageContext.request.contextPath}/index_regist.action"  class="navbar-brand">我要开店</a>
 			</div>
@@ -87,8 +87,8 @@ function buyNow(x){
 				<form  id="cartForm<s:property value="#p.pid"/>" action="" method="">
 				<input type="hidden" name="pid" value="<s:property value="#p.pid"/>">
 				<div class="goodsOperate">
-					<input type="submit" name="" class="addToCar btn btn-warning" value="加入购物车" onclick="buyNow(<s:property value="#p.pid"/>)">
-					<input type="submit" class="buy btn btn-danger" value="购买" onclick="saveCart(<s:property value="#p.pid"/>)">
+					<input type="submit" name="" class="addToCar btn btn-warning col-md-5" value="加入购物车" onclick="buyNow(<s:property value="#p.pid"/>)">
+					<input type="submit" class="buy btn btn-danger col-md-3 col-md-offset-1" value="购买" onclick="saveCart(<s:property value="#p.pid"/>)">
 				</div>
 				</form>
 			</div>
